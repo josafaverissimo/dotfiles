@@ -11,7 +11,8 @@ require("mason-lspconfig").setup({
     "ts_ls",
     "pyright",
     "ruff",
-    "tailwindcss"
+    "tailwindcss",
+    "rust_analyzer"
   },
   automatic_installation = true,
 })
@@ -85,3 +86,41 @@ vim.api.nvim_create_autocmd({ "BufWritePre" }, {
   pattern = { "*" },
   command = [[%s/\s\+$//e]],
 })
+
+-- Configuração do LSP para rust-analyzer (Rust)
+require('lspconfig').rust_analyzer.setup({
+  settings = {
+    ["rust-analyzer"] = {
+      cargo = {
+        allFeatures = true
+      },
+      procMacro = {
+        enable = true
+      }
+    }
+  }
+})
+
+-- Setup do DAP (debugger) para Rust utilizando codelldb
+local dap = require'dap'
+local codelldb_path = MASON_PACKAGE_PATH .. '/codelldb/extension/adapter/codelldb'
+
+dap.adapters.codelldb = {
+  type = 'server',
+  port = 13000,  -- Porta para a comunicação com o codelldb
+  executable = {
+    command = codelldb_path,
+    args = {'--port', '13000'},
+  },
+}
+
+dap.configurations.rust = {
+  {
+    name = "Launch file",
+    type = "codelldb",
+    request = "launch",
+    program = function()
+      return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
+    end,
+  },
+}
