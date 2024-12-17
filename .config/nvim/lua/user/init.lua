@@ -3,6 +3,11 @@ vim.keymap.set('n', '<A-j>', ':m+1<CR>')
 vim.keymap.set('n', '<leader>nb', ':Neotree buffers<CR>')
 vim.keymap.set('n', '<leader>ng', ':Neotree git_status<CR>')
 
+vim.api.nvim_set_hl(0, "DiagnosticUnderlineError", { undercurl = true, sp = "#f38ba8" })
+vim.api.nvim_set_hl(0, "DiagnosticUnderlineWarn", { undercurl = true, sp = "#f9e2af" })
+vim.api.nvim_set_hl(0, "DiagnosticUnderlineInfo", { undercurl = true, sp = "#89b4fa" })
+vim.api.nvim_set_hl(0, "DiagnosticUnderlineHint", { undercurl = true, sp = "#a6e3a1" })
+
 require("mason").setup()
 
 require("mason-lspconfig").setup({
