@@ -1,9 +1,6 @@
 return {
   "lewis6991/gitsigns.nvim",
-  "dracula/vim",
-  "navarasu/onedark.nvim",
   "lewis6991/satellite.nvim",
-  "princejoogie/dir-telescope.nvim",
   "nvim-lualine/lualine.nvim",
   "andweeb/presence.nvim",
   {
@@ -33,11 +30,5 @@ return {
       { '<leader>vc', '<cmd>VenvSelectCached<cr>' },
     },
   },
-  {
-    'Kicamon/markdown-table-mode.nvim',
-    config = function()
-      require('markdown-table-mode').setup()
-    end
-  }
 }
 

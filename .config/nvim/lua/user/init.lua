@@ -2,6 +2,8 @@ vim.keymap.set('n', '<A-k>', ':m-2<CR>')
 vim.keymap.set('n', '<A-j>', ':m+1<CR>')
 vim.keymap.set('n', '<leader>nb', ':Neotree buffers<CR>')
 vim.keymap.set('n', '<leader>ng', ':Neotree git_status<CR>')
+vim.api.nvim_set_keymap("n", "<leader>s", [[:%s/\s\+$//e<CR>]], { noremap = true, silent = true })
+
 
 vim.api.nvim_set_hl(0, "DiagnosticUnderlineError", { undercurl = true, sp = "#f38ba8" })
 vim.api.nvim_set_hl(0, "DiagnosticUnderlineWarn", { undercurl = true, sp = "#f9e2af" })
@@ -17,7 +19,8 @@ require("mason-lspconfig").setup({
     "pyright",
     "ruff",
     "tailwindcss",
-    "rust_analyzer"
+    "rust_analyzer",
+    "biome"
   },
   automatic_installation = true,
 })
@@ -36,6 +39,7 @@ require('lspconfig').ruff.setup({
 
 require('nvim-treesitter.configs').setup({
   ensure_installed = {
+    "tsx",
     "python",
     "javascript",
     "typescript",
@@ -53,6 +57,10 @@ require('nvim-treesitter.configs').setup({
 local MASON_PACKAGE_PATH = vim.fn.expand('~/.local/share/nvim/mason/packages')
 local VOLAR_TS_PLUGIN = MASON_PACKAGE_PATH .. '/vue-language-server/node_modules/@vue/language-server/node_modules/@vue/typescript-plugin'
 local TS_PATH = MASON_PACKAGE_PATH .. '/typescript-language-server/node_modules/typescript/lib'
+
+require('lspconfig').biome.setup({
+    root_dir = require("lspconfig.util").root_pattern("biome.json", "biome.jsonc", "biome.config.json", "package.json", ".git"),
+})
 
 require('lspconfig').volar.setup({
   init_options = {
@@ -85,12 +93,6 @@ require('lspconfig').ts_ls.setup({
 
 -- set rulers
 vim.opt.colorcolumn = "80,120"
-
--- Remove useless spaces
-vim.api.nvim_create_autocmd({ "BufWritePre" }, {
-  pattern = { "*" },
-  command = [[%s/\s\+$//e]],
-})
 
 -- Configuração do LSP para rust-analyzer (Rust)
 require('lspconfig').rust_analyzer.setup({
