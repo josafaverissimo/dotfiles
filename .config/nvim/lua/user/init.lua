@@ -25,18 +25,6 @@ require("mason-lspconfig").setup({
   automatic_installation = true,
 })
 
-require('lspconfig').ruff.setup({
-  init_options = {
-    settings = {
-      lineLength = 120,
-      lint = {
-        preview = true,
-        select = { "E", "W", "N", "PL" },
-      },
-    },
-  }
-})
-
 require('nvim-treesitter.configs').setup({
   ensure_installed = {
     "tsx",
