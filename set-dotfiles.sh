@@ -1,5 +1,7 @@
 #!/bin/bash
 
+dconf load /org/gnome/desktop/wm/keybindings/ < gnome_keybindings.ini
+
 cp ./.gitconfig ~/.gitconfig
 
 cp ./.aliases.sh ~/.aliases.sh
