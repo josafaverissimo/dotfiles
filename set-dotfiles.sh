@@ -12,3 +12,6 @@ cp -r ./.config/nvim/ ~/.config/nvim
 
 rm -rf ~/.config/lazygit/
 cp -r ./.config/lazygit/ ~/.config/lazygit/
+
+cp ./.config/systemd/user/*.service ~/.config/systemd/user/
+systemctl --user enable --now `/bin/ls .config/systemd/user/*.service | xargs -n 1 basename`

@@ -1,0 +1,11 @@
+[Unit]
+Description=Restore ALSA State
+After=graphical.target
+
+[Service]
+Type=oneshot
+ExecStart=/bin/env alsactl --file /home/josafaverissimo/.config/asound.state restore
+RemainAfterExit=true
+
+[Install]
+WantedBy=default.target
