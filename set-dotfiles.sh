@@ -6,6 +6,7 @@ cp ./.gitconfig ~/.gitconfig
 
 cp ./.aliases.sh ~/.aliases.sh
 cp ./.zshrc ~/.zshrc
+cp ./zshenv ~/.zshenv
 
 rm -rf ~/.config/nvim
 cp -r ./.config/nvim/ ~/.config/nvim
