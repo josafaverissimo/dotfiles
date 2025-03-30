@@ -4,7 +4,7 @@ After=graphical.target
 
 [Service]
 Type=oneshot
-ExecStart=/bin/env alsactl --file /home/josafaverissimo/.config/asound.state restore
+ExecStart=%h/scripts/restore-alsa-state.sh
 RemainAfterExit=true
 
 [Install]
