@@ -85,7 +85,7 @@ plugins=(
   git
   python
   zsh-autosuggestions
-  zsh-syntax-highlighting
+  fast-syntax-highlighting
 )
 
 export PYTHON_AUTO_VRUN=true
