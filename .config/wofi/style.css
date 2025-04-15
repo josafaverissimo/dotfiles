@@ -1,107 +1,78 @@
-@import url('/home/josafaverissimo/.cache/wal/colors-waybar.css');
-
-
-@define-color mauve  @color9;
-@define-color red  @color9;
-@define-color lavender  @color7;
-@define-color text  @color7;
-@keyframes fadeIn {
-    0% {
-    }
-    100% {
-    }
-}
-
-* {
-    all:unset;
-    font-family: 'CodeNewRoman Nerd Font Mono', monospace;
-    font-size: 18px;
-    outline: none;
-    border: none;
-    text-shadow:none;
-    background-color:transparent;
-}
+@import url('/home/josafaverissimo/.config/wofi/themes/catppuccin/mocha.css');
 
 window {
-    all:unset;
-    padding: 20px;
-    border-radius: 0px;
-    background-color: alpha(@background,.8);
-    border-radius: 2rem;
-}
-#inner-box {
-    margin: 2px;
-    padding: 5px
-    border: none;
-}
-#outer-box {    
-    border: none;
-}
-#scroll {
     margin: 0px;
-    padding: 30px;
-    border: none;
+    background: transparent;
+    border-radius: 2rem
 }
+
 #input {
-    all:unset;
-    margin-left:20px;
-    margin-right:20px;
-    margin-top:20px;
-    padding: 20px;
+    padding: 4px;
+    margin: 4px;
+    padding-left: 20px;
     border: none;
-    outline: none;
-    color: @text;
-    box-shadow: 1px 1px 5px rgba(0,0,0, .5);
-    border-radius:10;
-    background-color: alpha(@background,.2);
-}
-#input image {
-    border: none;
-    color: @red;
-    padding-right:10px;
-}
-#input * {
-    border: none;
-    outline: none;
+    color: #cdd6f4;
+    font-weight: bold;
+    background-color: rgba(49, 50, 68, .5);
+   	outline: none;
+    border-radius: 15px;
+    margin: 10px;
+    margin-bottom: 2px;
 }
 
-#input:focus {
-    outline: none;
-    border: none;
-
-    border-radius:10;
-}
-#text {
-    margin: 5px;
-    border: none;
-    color: @text;
-    outline: none;
-}
-#text {
-    margin: 5px;
-    border: none;
-    color: @text;
-    outline: none;
-}
-#entry {
-    border: none;
+#inner-box {
     margin: 5px;
     padding: 10px;
+    color: #cdd6f4;
+    font-weight: bold;
+    background-color: rgba(49, 50, 68, .5);
+    border-radius: 15px;
 }
-#entry arrow {
-    border: none;
-    color: @lavender;
 
-}
-#entry:selected {
-    box-shadow: 1px 1px 5px rgba(255,255,255, .03);
+#outer-box {
+    margin: 0px;
     border: none;
-    border-radius: 20px;
-    background-color:transparent;
+    border-radius: 15px;
+    background-color: rgba(17, 17, 27, .3);
 }
-#entry:selected #text {
-    color: @mauve;
+
+#scroll {
+    margin-top: 10px;
+    border: none;
+    border-radius: 15px;
+    background: transparent;
+    margin-bottom: 10px;
+    /*background: rgb(255,255,255);*/
 }
-#entry:drop(active) {
-    background-color: @lavender !important;
+
+#img {
+    margin: 0 .5rem;
+    transition: all .2s;
+}
+
+#img:selected {
+    border-radius: 15px;
+    margin-right: 1rem;
+}
+
+#text:selected {
+    color: #cdd6f4;
+    margin: 0px 0px;
+    border: none;
+    border-radius: 15px;
+    background: transparent;
+}
+
+#entry {
+    margin: 0px 0px;
+    border: none;
+    background-color: transparent;
+    outline: none;
+}
+
+#entry:selected {
+    margin: 0px 0px;
+    border: none;
+    border-radius: 15px;
+    background-color: rgba(203, 166, 247, .5);
 }
