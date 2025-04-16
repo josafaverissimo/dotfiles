@@ -3,8 +3,8 @@
 current_opacity=$(hyprctl getoption decoration:inactive_opacity | rg --pcre2 "(?<=float:\s)\d\.\d" -o)
 
 opaque=1.0
-active_translucent=0.9
-inactive_translucent=0.8
+active_translucent=0.95
+inactive_translucent=0.9
 
 echo $current_opacity
 echo $opaque
