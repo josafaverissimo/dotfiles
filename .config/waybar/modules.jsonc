@@ -74,19 +74,24 @@
   },
 
   "custom/swaync": {
-    "format" : "{icon}",
+    "tooltip": false,
+    "format": "{icon}",
     "format-icons": {
-      "notification": "<span foreground='red'><small><sup>⬤</sup></small></span>",
-      "none": " ",
-      "dnd-notification": "<span foreground='red'><small><sup>⬤</sup></small></span>",
-      "dnd-none": " "
+      "notification": "󰂚<span foreground='red'><sup></sup></span>",
+      "none": "󰂚",
+      "dnd-notification": "󰂛<span foreground='red'><sup></sup></span>",
+      "dnd-none": "󰂛",
+      "inhibited-notification": "󰂚<span foreground='red'><sup></sup></span>",
+      "inhibited-none": "󰂚",
+      "dnd-inhibited-notification": "󰂛<span foreground='red'><sup></sup></span>",
+      "dnd-inhibited-none": "󰂛"
     },
     "return-type": "json",
     "exec-if": "which swaync-client",
     "exec": "swaync-client -swb",
-    "on-click": "sleep 0.1 && swaync-client -t -sw",
-    "escape": true,
-    "tooltip": false
+    "on-click": "swaync-client -t -sw",
+    "on-click-right": "swaync-client -d -sw",
+    "escape": true
   },
 
   "memory": {
@@ -107,5 +112,50 @@
       "<span color='#ff9977'>▇</span>", // orange
       "<span color='#dd532e'>█</span>"  // red
     ]
-  }
+  },
+
+  "mpd": {
+    "format": "{stateIcon} {consumeIcon}{randomIcon}{repeatIcon}{singleIcon}{artist} - {album} - {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S}) ",
+    "format-disconnected": "Disconnected ",
+    "format-stopped": "{consumeIcon}{randomIcon}{repeatIcon}{singleIcon}Stopped ",
+    "interval": 10,
+    "consume-icons": {
+        "on": " " // Icon shows only when "consume" is on
+    },
+    "random-icons": {
+        "off": "<span color=\"#f53c3c\"></span> ", // Icon grayed out when "random" is off
+        "on": " "
+    },
+    "repeat-icons": {
+        "on": " "
+    },
+    "single-icons": {
+        "on": "1 "
+    },
+    "state-icons": {
+        "paused": "",
+        "playing": ""
+    },
+    "tooltip-format": "MPD (connected)",
+    "tooltip-format-disconnected": "MPD (disconnected)"
+  },
+
+  "mpris": {
+	  "format": "DEFAULT: {player_icon} {dynamic}",
+	  "format-paused": "DEFAULT: {status_icon} <i>{dynamic}</i>",
+	  "player-icons": {
+		  "default": "▶",
+		  "mpv": "🎵"
+	  },
+	  "status-icons": {
+		  "paused": "⏸"
+	  },
+	  // "ignored-players": ["firefox"]
+  },
+
+  "disk": {
+    "interval": 30,
+    "format": "Only {percentage_free}% remaining on {path}",
+    "path": "/"
+  },
 }

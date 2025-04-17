@@ -124,4 +124,5 @@ window#waybar.empty #window {
 #custom-swaync {
     border-radius: 0px 18px 18px 0px;
     margin-right: 5px;
+    padding: 0 12px;
 }
