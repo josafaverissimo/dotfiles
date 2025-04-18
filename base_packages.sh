@@ -14,11 +14,14 @@ makepkg -si
 cd $current_dir
 
 packages=(
+  network-manager-applet
+  networkmanager-openvpn
   flatpak
   git
   neovim
   docker
   docker-compose
+  ttf-font-awesome
   ttf-dejavu
   nerd-fonts
   adobe-source-han-sans-otc-fonts
@@ -37,7 +40,6 @@ packages=(
 )
 
 aur=(
-  ttf-joypixels
   zen-browser-bin
   pwvucontrol
 )
