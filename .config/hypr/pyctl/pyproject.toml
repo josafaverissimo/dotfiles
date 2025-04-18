@@ -1,0 +1,14 @@
+[project]
+name = "pyctl"
+version = "0.1.0"
+description = "Utilities for my hyprland env"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = []
+
+[tool.ruff]
+line-length = 80
+
+[tool.ruff.lint]
+select = ["E", "W", "N", "PL"]
+preview = true
