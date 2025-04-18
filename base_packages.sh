@@ -16,8 +16,12 @@ cd $current_dir
 packages=(
   flatpak
   git
+  neovim
+  docker
+  docker-compose
   ttf-dejavu
   nerd-fonts
+  adobe-source-han-sans-otc-fonts
   alacritty
   zellij
   ripgrep
@@ -26,15 +30,16 @@ packages=(
   alsa-utils
   lazygit
   git-delta
+  discord
 )
 
 aur=(
   ttf-joypixels
   zen-browser-bin
+  pwvucontrol
 )
 
 flatpak=(com.saivert.pwvucontrol)
 
-sudo pacman -Syu $packages
+sudo pacman -Syu ${packages[@]}
 paru -S $aur
-flatpak install flathub $flatpak
