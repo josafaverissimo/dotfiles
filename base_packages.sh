@@ -31,6 +31,8 @@ packages=(
   lazygit
   git-delta
   discord
+  man-db
+  man-pages
 )
 
 aur=(
