@@ -63,9 +63,8 @@ tooltip {
 #clock,
 #window,
 #pulseaudio,
-#tray,
-#memory,
-#custom-swaync {
+#trayswaync,
+#hardware {
     background-color: rgba(17, 17, 27, .7);
     margin: 0 0 0 0;
     padding: 0 7px;
@@ -75,14 +74,29 @@ tooltip {
     border: none;
 }
 
+#trayswaync {
+    padding: 0 5px;
+}
+
+#tray {
+    margin-right: 10px;
+    margin-left: 5px
+}
+
+#custom-swaync {
+    margin-right: 7px;
+}
+
+#hardware {
+    margin-right: 10px;
+}
+
 #cpu {
-    margin-right: 5px;
+    margin-right: 10px;
 }
 
 #memory {
     color: #cdd6f4;
-    margin-right: 5px;
-    margin-left: 5px;
 }
 
 #clock {
@@ -116,13 +130,13 @@ window#waybar.empty #window {
     margin-right: 5px;
 }
 
-#tray {
-    border-radius: 18px 0 0 18px;
-    background: rgba(30, 30, 46, .7);
-}
+/* #tray { */
+/*     border-radius: 18px 0 0 18px; */
+/*     background: rgba(30, 30, 46, .7); */
+/* } */
 
-#custom-swaync {
-    border-radius: 0px 18px 18px 0px;
-    margin-right: 5px;
-    padding: 0 12px;
-}
+/* #custom-swaync { */
+/*     border-radius: 0px 18px 18px 0px; */
+/*     margin-right: 5px; */
+/*     padding: 0 12px; */
+/* } */

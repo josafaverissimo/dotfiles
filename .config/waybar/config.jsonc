@@ -19,17 +19,15 @@
 	],
   "modules-right": [
   	"group/hardware",
-		"tray",
-		"custom/swaync",
+  	"group/trayswaync",
 		"clock"
 	],
 
-	// Group IO Audio
-	"group/audio": {
+	"group/trayswaync": {
 		"orientation": "horizontal",
 		"modules": [
-			"pulseaudio",
-			"pulseaudio#microphone"
+			"tray",
+			"custom/swaync"
 		]
 	},
 

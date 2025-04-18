@@ -40,8 +40,7 @@
   "clock": {
     "format": "{:%a %d %b %H:%M}",
     "tooltip-format": "{:%A, %d %B %Y}",
-    "timezone": "America/Sao_Paulo",
-    "on-click": "alacritty -e cal"
+    "timezone": "America/Sao_Paulo"
   },
 
   "pulseaudio": {
