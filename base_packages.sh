@@ -33,6 +33,7 @@ packages=(
   discord
   man-db
   man-pages
+  fd
 )
 
 aur=(
