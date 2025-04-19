@@ -22,6 +22,7 @@ packages=(
   docker
   docker-compose
   ttf-font-awesome
+  noto-fonts-emoji
   ttf-dejavu
   nerd-fonts
   adobe-source-han-sans-otc-fonts
