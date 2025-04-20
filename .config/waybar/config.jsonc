@@ -16,7 +16,6 @@
 		"group/trayswaync",
 		"upower",
 		"clock",
-		"network"
 	],
 
 	"group/trayswaync": {
