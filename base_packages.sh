@@ -14,6 +14,8 @@ makepkg -si
 cd $current_dir
 
 packages=(
+  fzf
+  zoxide
   network-manager-applet
   networkmanager-openvpn
   flatpak
