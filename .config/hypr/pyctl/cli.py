@@ -1,7 +1,5 @@
 #!/usr/bin/env python3
 
-from typing import Callable
-
 from sys import argv
 
 from src.commands import Commands
@@ -27,6 +25,8 @@ def main():
         logger.warning(f"Command {command_name} not found")
 
         return
+
+    logger.info(f"Running command {command_name}")
 
     command()
 

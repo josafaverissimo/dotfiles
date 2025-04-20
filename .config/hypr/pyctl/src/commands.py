@@ -1,5 +1,6 @@
 from typing import Callable, cast
 import re
+import json
 
 from src.utils import run, CustomLogger
 from src.enums import ToggleOpacitySettingEnum
@@ -100,6 +101,8 @@ class Commands:
             process = run("pgrep hypridle")
 
             if process.error:
+                logger.error(process.error)
+
                 return False
 
             return True
@@ -110,3 +113,55 @@ class Commands:
             return
 
         resurrect()
+
+    @staticmethod
+    def __change_worksace(workspace: int):
+        process = run(f"hyprctl dispatch workspace {workspace}")
+
+        if process.error:
+            logger.error(process.error)
+
+            return
+
+    @staticmethod
+    def __get_current_workspace():
+        process = run("hyprctl activeworkspace -j")
+
+        if process.error:
+            logger.error(process.error)
+
+            return
+
+        assert process.value is not None
+
+        return cast(int, json.loads(process.value)["id"])
+
+    def back_workspace(self):
+        current_workspace = self.__get_current_workspace()
+
+        if not current_workspace:
+            return
+
+        previous_workspace = current_workspace - 1
+        min_workspace = 1
+
+        if previous_workspace < min_workspace:
+            previous_workspace = 10
+
+        self.__change_worksace(previous_workspace)
+
+    def next_workspace(self):
+        current_workspace = self.__get_current_workspace()
+
+        if not current_workspace:
+            return
+
+        next_workspace = current_workspace + 1
+        max_workspace = 10
+
+        logger.info(f"Going to workspace {next_workspace}")
+
+        if next_workspace > max_workspace:
+            next_workspace = 1
+
+        self.__change_worksace(next_workspace)
