@@ -26,6 +26,6 @@
 
 	"group/hardware": {
 		"orientation": "horizontal",
-		"modules": ["cpu", "memory"]
+		"modules": ["cpu", "temperature", "memory"]
 	}
 }

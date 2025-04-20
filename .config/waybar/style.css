@@ -90,6 +90,10 @@ tooltip {
 	color: #cdd6f4;
 }
 
+#temperature {
+	margin-right: 7px;
+}
+
 #network {
 	margin-right: 5px;
 }
