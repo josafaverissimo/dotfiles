@@ -1,15 +1,14 @@
 * {
 	border: none;
 	border-radius: 0;
-	font-family: "Fira Code", FontAwesome;
+	font-family: "HackNerdFont";
 	font-weight: bold;
-	font-size: 14px;
+	font-size: 12px;
 	min-height: 0;
 }
 
 window#waybar {
-	/* background-color: rgba(0, 0, 0, 0); */
-	background: transparent;
+	background-color: transparent;
 	color: #cdd6f4;
 	transition-property: background-color;
 	transition-duration: .5s;
@@ -30,16 +29,16 @@ tooltip {
 #workspaces {
 	background: rgba(17, 17, 27, 0.7);
 	border-radius: 1rem;
-	padding: 4px;
-	margin: 10px 0 10px 5px;
+	padding: 0.5em;
 }
 
 #workspaces button {
 	background: rgb(205, 214, 244);
 	border-radius: 16px;
 	padding: 0;
-	margin: 0 5px;
+	margin: 0 0.25em;
 	transition: all 0.2s;
+	min-height: 5px;
 }
 
 #workspaces button.empty {
@@ -71,10 +70,6 @@ tooltip {
 	margin: 0 0 0 0;
 	padding: 0 7px;
 	border-radius: 18px;
-	margin-top: 10px;
-	margin-bottom: 10px;
-	margin-left: 3px;
-	margin-right: 3px;
 	border: none;
 }
 
@@ -100,7 +95,6 @@ tooltip {
 
 #clock {
 	color: #cdd6f4;
-	margin-right: 5px;
 }
 
 #window {
@@ -116,13 +110,7 @@ window#waybar.empty #window {
 	background-color: transparent;
 }
 
-#pulseaudio {
-	border-radius: 18px 0 0 18px;
-	color: #89dceb;
-}
-
-#pulseaudio.microphone {
-	border-radius: 0 18px 18px 0;
-	color: #f38ba8;
-	margin-right: 5px;
+#custom-arrow1 {
+	font-size: 11pt;
+	background-color: red;
 }

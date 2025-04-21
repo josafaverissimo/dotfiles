@@ -23,14 +23,6 @@
 		"tooltip-spacing": 20
 	},
 
-	"user": {
-		"format": "{user} (up {work_d} days ↑)",
-		"interval": 60,
-		"height": 30,
-		"width": 30,
-		"icon": true
-	},
-
 	"hyprland/workspaces": {
 		"disable-scroll": true,
 		"active-only": false,
@@ -52,52 +44,10 @@
 		"spacing": 10
 	},
 
-	"network": {
-		"wifi": true,
-		"format": "{ifname}",
-		"format-wifi": " ",
-		"format-ethernet": " ",
-		"format-disconnected": " ", //An empty format will hide the module.
-		"tooltip-format": "{ifname} via {gwaddr}  ",
-		"tooltip-format-wifi": "{essid} ({signalStrength}%) | {ipaddr}",
-		"tooltip-format-ethernet": "{ipaddr}",
-		"tooltip-format-disconnected": "Disconnected",
-		"max-length": 50
-	},
-
 	"clock": {
 		"format": "{:%a %d %b %H:%M}",
 		"tooltip-format": "{:%A, %d %B %Y}",
 		"timezone": "America/Sao_Paulo"
-	},
-
-	"pulseaudio": {
-		"format": "{icon}  {volume}%",
-		"tooltip": true,
-		"format-muted": "󰋐",
-		"on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
-		"on-scroll-up": "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.05+",
-		"on-scroll-down": "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.05-",
-		"scroll-step": 5,
-		"format-icons": {
-			"headphone": "󰋎",
-			"hands-free": "",
-			"headset": "",
-			"phone": "",
-			"portable": "",
-			"car": " ",
-			"default": ["", "", ""]
-		}
-	},
-
-	"pulseaudio#microphone": {
-		"format": "{format_source}",
-		"format-source": " {volume}%",
-		"format-source-muted": " ",
-		"on-click": "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle",
-		"on-scroll-up": "wpctl set-volume @DEFAULT_AUDIO_SOURCE@ 0.05+",
-		"on-scroll-down": "wpctl set-volume @DEFAULT_AUDIO_SOURCE@ 0.05-",
-		"scroll-step": 5
 	},
 
 	"custom/swaync": {
@@ -146,50 +96,5 @@
 			"<span color='#ff9977'>▇</span>", // orange
 			"<span color='#dd532e'>█</span>" // red
 		]
-	},
-
-	"mpd": {
-		"format": "{stateIcon} {consumeIcon}{randomIcon}{repeatIcon}{singleIcon}{artist} - {album} - {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S}) ",
-		"format-disconnected": "Disconnected ",
-		"format-stopped": "{consumeIcon}{randomIcon}{repeatIcon}{singleIcon}Stopped ",
-		"interval": 10,
-		"consume-icons": {
-			"on": " " // Icon shows only when "consume" is on
-		},
-		"random-icons": {
-			"off": "<span color=\"#f53c3c\"></span> ", // Icon grayed out when "random" is off
-			"on": " "
-		},
-		"repeat-icons": {
-			"on": " "
-		},
-		"single-icons": {
-			"on": "1 "
-		},
-		"state-icons": {
-			"paused": "",
-			"playing": ""
-		},
-		"tooltip-format": "MPD (connected)",
-		"tooltip-format-disconnected": "MPD (disconnected)"
-	},
-
-	"mpris": {
-		"format": "DEFAULT: {player_icon} {dynamic}",
-		"format-paused": "DEFAULT: {status_icon} <i>{dynamic}</i>",
-		"player-icons": {
-			"default": "▶",
-			"mpv": "🎵"
-		},
-		"status-icons": {
-			"paused": "⏸"
-		}
-		// "ignored-players": ["firefox"]
-	},
-
-	"disk": {
-		"interval": 30,
-		"format": "Only {percentage_free}% remaining on {path}",
-		"path": "/"
 	}
 }
