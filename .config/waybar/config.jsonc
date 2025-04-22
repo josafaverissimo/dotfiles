@@ -19,7 +19,8 @@
 		"group/hardware",
 		"group/trayswaync",
 		"upower",
-		"clock"
+		"clock",
+		"backlight"
 	],
 
 	"group/trayswaync": {

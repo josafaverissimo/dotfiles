@@ -65,6 +65,7 @@ tooltip {
 #trayswaync,
 #hardware,
 #network,
+#backlight,
 #upower {
 	background-color: rgba(17, 17, 27, 0.7);
 	margin: 0 0 0 0;

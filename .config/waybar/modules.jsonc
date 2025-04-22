@@ -23,6 +23,12 @@
 		"tooltip-spacing": 20
 	},
 
+	"backlight": {
+		"device": "intel_backlight",
+		"format": "{percent}% {icon}",
+		"format-icons": ["", ""]
+	},
+
 	"hyprland/workspaces": {
 		"disable-scroll": true,
 		"active-only": false,
