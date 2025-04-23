@@ -46,8 +46,8 @@ class Commands:
             return float(current_opacity)
 
         def set_opacity(active: float, inactive: float):
-            run(f'hyprctl keyword decoration:active_opacity "{active:.1f}"')
-            run(f'hyprctl keyword decoration:inactive_opacity "{inactive:.1f}"')
+            run(f'hyprctl keyword decoration:active_opacity "{active:.2f}"')
+            run(f'hyprctl keyword decoration:inactive_opacity "{inactive:.2f}"')
 
         current_opacity = get_current_opacity()
 
