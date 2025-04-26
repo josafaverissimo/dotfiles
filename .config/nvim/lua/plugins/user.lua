@@ -3,7 +3,6 @@ return {
   "lewis6991/satellite.nvim",
   "nvim-lualine/lualine.nvim",
   "andweeb/presence.nvim",
-  "nvim-java/nvim-java",
   {
     "catppuccin/nvim",
     name = "catppuccin",
