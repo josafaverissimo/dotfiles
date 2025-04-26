@@ -86,6 +86,16 @@ require("lspconfig").ts_ls.setup {
   },
 }
 
+require("lspconfig").jdtls.setup {
+  settings = {
+    java = {
+      project = {
+        sourcePaths = { "." },
+      },
+    },
+  },
+}
+
 -- set rulers
 vim.opt.colorcolumn = "80,120"
 
