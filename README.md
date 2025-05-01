@@ -12,3 +12,11 @@ Programs to must have
 - bat
 - ripgrep
 - eza
+
+## Hyprcursor
+
+To force xcursor theme
+
+```sh
+xrdb -merge <<< "Xcursor.theme: catppuccin-mocha-blue-cursors"
+```
