@@ -2,6 +2,7 @@ from typing import Callable, cast
 import re
 import json
 
+from src.types import OpacityDict
 from src.utils import run, CustomLogger
 from src.enums import ToggleOpacitySettingEnum
 
@@ -23,7 +24,7 @@ class Commands:
     @staticmethod
     def toggle_opacity():
         def get_current_opacity() -> float | None:
-            process = run("hyprctl getoption decoration:active_opacity")
+            process = run("hyprctl getoption decoration:active_opacity -j")
 
             if process.error:
                 logger.error(process.error)
@@ -32,18 +33,15 @@ class Commands:
 
             assert process.value is not None
 
-            re_match = re.match(r"float: (\d*\.\d{2})", process.value)
+            try:
+                opacity_dict: OpacityDict = json.loads(process.value)
 
-            if not re_match:
-                logger.error(
-                    f"Failed to get opacity float from stdout: {process.value}"
-                )
+            except json.JSONDecodeError:
+                logger.error(f"Failed to parse opacity json: {process.value}")
 
                 return
 
-            current_opacity: str = re_match.group(1)
-
-            return float(current_opacity)
+            return opacity_dict["float"]
 
         def set_opacity(active: float, inactive: float):
             run(f'hyprctl keyword decoration:active_opacity "{active:.2f}"')
