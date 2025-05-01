@@ -2,7 +2,7 @@
 
 Fonts to must have
 - [Dejavu](https://archlinux.org/packages/extra/any/ttf-dejavu/) (braile support)
-- [Joypixels](https://aur.archlinux.org/packages/ttf-joypixels/) (Emojis)
+- [NotoFontsEmoji](https://archlinux.org/packages/extra/any/noto-fonts-emoji/) (Emojis)
 - [Adobe](https://archlinux.org/packages/extra/any/adobe-source-han-sans-otc-fonts/) (Chinese/Japan/Korean)
 
 Programs to must have
@@ -13,10 +13,19 @@ Programs to must have
 - ripgrep
 - eza
 
-## Hyprcursor
+## Notes
 
+### Xcursor
 To force xcursor theme
 
 ```sh
 xrdb -merge <<< "Xcursor.theme: catppuccin-mocha-blue-cursors"
+```
+
+#### Flatpaks
+
+Some gtk apps creates its own config, to get your custom cursor, set:
+
+```sh
+flatpak override --user --filesystem=~/.config/dconf:ro
 ```
