@@ -1,0 +1,11 @@
+[Unit]
+Description=Watch wallpapers changes
+After=graphical.target
+
+[Service]
+Type=simple
+ExecStart=%h/scripts/watch-wallpaper.sh
+Restart=on-failure
+
+[Install]
+WantedBy=default.target
