@@ -5,11 +5,11 @@ font_family HackNerdFont
 font_size 10
 
 # Transparência da janela
-background_opacity 0.8
+background_opacity 0.7
 
 
 
 # BEGIN_KITTY_THEME
-# Catppuccin-Mocha
+# Adwaita dark
 include current-theme.conf
 # END_KITTY_THEME

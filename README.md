@@ -17,7 +17,7 @@ Programs to must have
 
 ### Hyprpaper
 
-run `pacman -S python-watchdog` and put /scripts/watch-wallpaper in ~/.scripts/bin
+run `pacman -S python-watchdog` and put /scripts/watch-wallpaper in ~/.scripts
 to hot reload wallpaper on change wallpaper in path ~/Pictures/wallpapers/current/active.
 
 run `cp .config/systemd/user/watch-wallpaper.service ~/.config/systemd/user/watch-wallpaper.service` 
