@@ -20,8 +20,8 @@ Programs to must have
 run `pacman -S python-watchdog` and put /scripts/watch-wallpaper in ~/.scripts/bin
 to hot reload wallpaper on change wallpaper in path ~/Pictures/wallpapers/current/active.
 
-copy /.config/systemd/user/watch-wallpaper.service to ~/.config/systemd/user/watch-wallpaper.service
-and run systemd --user --enable now watch-wallpaper.service.
+run `cp .config/systemd/user/watch-wallpaper.service ~/.config/systemd/user/watch-wallpaper.service` 
+and run `systemctl --user enable --now watch-wallpaper.service`
 
 ### Xcursor
 To force xcursor theme
