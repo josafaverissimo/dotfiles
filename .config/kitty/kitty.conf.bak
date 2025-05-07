@@ -1,15 +1,16 @@
-# kitty.conf equivalente ao alacritty.toml
-
-# Fonte
-font_family HackNerdFont
+# BEGIN_KITTY_FONTS
 font_size 10
-
-# Transparência da janela
-background_opacity 0.7
-
-
+text_composition_strategy 1.4 20
+font_family      family="JetBrains Mono"
+bold_font        auto
+italic_font      auto
+bold_italic_font auto
+# END_KITTY_FONTS
 
 # BEGIN_KITTY_THEME
 # Adwaita dark
 include current-theme.conf
 # END_KITTY_THEME
+
+cursor_trail 1
+cursor #FFFA8D
