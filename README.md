@@ -12,6 +12,16 @@ Welcome to my Dotfiles. I use:
 - nvim;
 - starship.
 
+## How use it?
+
+Copy code snippets into your config, or copy the directories into your own configuration.
+Alternatively, create symbolic links to them:
+
+```sh
+# cp -r ./.config/hypr ${XDG_CONFIG_HOME:-$HOME/.config}/
+# ln -sf /full/path/.config/kitty ${XDG_CONFIG_HOME:-$HOME/.config}/
+```
+
 ## Notes
 
 Some notes about my config.
