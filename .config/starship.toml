@@ -23,7 +23,7 @@ $python\
 $conda\
 [](fg:sapphire bg:lavender)\
 $time\
-[ ](fg:lavender)\
+[ ](fg:lavender)\
 $cmd_duration\
 $line_break\
 $character"""
