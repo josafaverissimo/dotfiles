@@ -5,6 +5,7 @@ current_dir=$(pwd)
 mkdir -p ~/aur
 
 # install paru
+#
 cd ~/aur
 sudo pacman -S --needed base-devel
 git clone https://aur.archlinux.org/paru.git
@@ -13,23 +14,29 @@ makepkg -si
 
 cd $current_dir
 
-packages=(
+# pacman
+
+fonts=(
+  ttf-jetbrains-mono-nerd
+  ttf-dejavu
+  noto-fonts-emoji
+  noto-fonts-cjk
+)
+
+dev=(
+  git
+  neovim
+  docker
+  docker-compose
+  python-uv
+)
+
+utils=(
   fzf
   zoxide
   network-manager-applet
   networkmanager-openvpn
   flatpak
-  git
-  neovim
-  docker
-  docker-compose
-  ttf-font-awesome
-  noto-fonts-emoji
-  ttf-dejavu
-  ttf-jetbrains-mono
-  adobe-source-han-sans-otc-fonts
-  alacritty
-  zellij
   ripgrep
   eza
   bat
@@ -40,14 +47,20 @@ packages=(
   man-db
   man-pages
   fd
+  python-watchdog
 )
+
+# aur
 
 aur=(
   zen-browser-bin
   pwvucontrol
 )
 
-flatpak=(com.saivert.pwvucontrol)
+# flatpak
 
-sudo pacman -Syu ${packages[@]}
+flatpak=(com.saivert.pwvucontrol com.github.tchx84.Flatseal)
+
+sudo pacman -Syu ${fonts[@]} ${dev[@]} ${utils[@]}
 paru -S $aur
+flatpak install flathub $flatpak
