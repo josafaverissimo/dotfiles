@@ -6,9 +6,11 @@ Welcome to my Dotfiles. I use:
 - hyprland;
 - waybar;
 - wofi;
+- swaync;
 - kitty/alacritty/wezterm;
 - tmux/zellij;
-- nvim.
+- nvim;
+- starship.
 
 ## Notes
 
@@ -18,6 +20,7 @@ Some notes about my config.
 
 Fonts to must have
 - [Dejavu](https://archlinux.org/packages/extra/any/ttf-dejavu/), for braille support
+apps like btop need them
 - [Noto fonts emoji](https://archlinux.org/packages/extra/any/noto-fonts-emoji/)
 - [Noto fonts CJK](https://archlinux.org/packages/extra/any/noto-fonts-cjk/)
 - [Jetbrains nerd font](https://archlinux.org/packages/extra/any/ttf-jetbrains-mono-nerd/)
@@ -48,8 +51,8 @@ paru -S catppuccin-cursors-mocha
 ```
 
 > [!warning]
-> xcursor fallback may  not work properly, so force it.
-> either, flatpak gtk apps may not work. see instructions below
+> Xcursor fallback may  not work properly, so it's being forced.
+> Also, flatpak gtk apps may not work. see instructions below.
 
 
 ```sh
@@ -68,6 +71,7 @@ dconf write /org/gnome/desktop/interface/cursor-theme "'catppuccin-mocha-blue-cu
 
 ### Third-Party
 
-Some important apps are not in base_packages.sh. They are:
+Some important softwares are not in base_packages.sh. They are:
 
 - [asdf](https://asdf-vm.com/);
+- [starship](https://github.com/starship/starship).
