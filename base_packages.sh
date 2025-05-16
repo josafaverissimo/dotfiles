@@ -48,6 +48,8 @@ utils=(
   man-pages
   fd
   python-watchdog
+  bluez
+  bluez-utils
 )
 
 # aur
