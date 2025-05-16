@@ -12,6 +12,13 @@ Welcome to my Dotfiles. I use:
 - nvim;
 - starship.
 
+<details>
+  <summary>Basic preview</summary>
+
+  ![image](https://github.com/user-attachments/assets/4389d986-5d27-46d9-9f71-d853e1723da8)
+</details>
+
+
 ## How use it?
 
 Copy code snippets into your config, or copy the directories into your own configuration.
