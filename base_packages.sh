@@ -51,6 +51,7 @@ utils=(
   xdg-desktop-portal-gtk
   bluez
   bluez-utils
+  hyprpolkitagent
 )
 
 # aur
