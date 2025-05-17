@@ -54,6 +54,7 @@ utils=(
   hyprpolkitagent
   rclone
   libreoffice-still
+  imagemagick
 )
 
 # aur
