@@ -52,6 +52,8 @@ utils=(
   bluez
   bluez-utils
   hyprpolkitagent
+  rclone
+  libreoffice-still
 )
 
 # aur
