@@ -3,6 +3,8 @@ return {
   "lewis6991/satellite.nvim",
   "nvim-lualine/lualine.nvim",
   "andweeb/presence.nvim",
+  "3rd/image.nvim",
+  "OXY2DEV/markview.nvim",
   {
     "catppuccin/nvim",
     name = "catppuccin",
