@@ -49,6 +49,8 @@ utils=(
   fd
   python-watchdog
   xdg-desktop-portal-gtk
+  bluez
+  bluez-utils
 )
 
 # aur
