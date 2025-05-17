@@ -48,6 +48,7 @@ utils=(
   man-pages
   fd
   python-watchdog
+  xdg-desktop-portal-gtk
 )
 
 # aur
