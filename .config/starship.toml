@@ -7,7 +7,7 @@ add_newline = false
 
 "$schema" = 'https://starship.rs/config-schema.json'
 
-right_format = """
+right_format = """\
 $cmd_duration
 """
 
@@ -77,7 +77,6 @@ time_format = "%T"
 style = "bold bg:sapphire fg:black"
 format = "[🭃](bold fg:sapphire)[$symbol ]($style)"
 disabled = false
-show_always = true
 
 [os.symbols]
 Windows = ""
