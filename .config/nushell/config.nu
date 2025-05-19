@@ -28,4 +28,12 @@ source ~/.zoxide.nu
 
 source "~/.asdf/completions/nushell.nu"
 
-
+def hyprlog [] {
+  ls ($env.XDG_RUNTIME_DIR | path join "hypr")
+  | sort-by modified
+  | reverse
+  | first
+  | get name
+  | path join "hyprland.log"
+  | open
+}
