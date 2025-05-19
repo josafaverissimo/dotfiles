@@ -33,3 +33,5 @@ def hyprlog [] {
   | path join "hyprland.log"
   | open
 }
+
+alias vrun = overlay use .venv/bin/activate.nu
