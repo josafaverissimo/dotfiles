@@ -17,5 +17,26 @@
 # You can remove these comments if you want or leave
 # them for future reference.
 
+$env.config.edit_mode = 'vi'
+
 zoxide init nushell | save -f ~/.zoxide.nu
 
+let shims_dir = (
+  if ( $env | get --ignore-errors ASDF_DATA_DIR | is-empty ) {
+    $env.HOME | path join '.asdf'
+  } else {
+    $env.ASDF_DATA_DIR
+  } | path join 'shims'
+)
+
+$env.PATH = ( $env.PATH | split row (char esep) | where { |p| $p != $shims_dir } | prepend $shims_dir )
+
+$env.ASDF_DATA_DIR = (
+  if ( $env | get --ignore-errors ASDF_DATA_DIR | is-empty ) {
+    $env.HOME | path join '.asdf'
+  } else {
+    $env.ASDF_DATA_DIR
+  }
+)
+
+$env.ASDF_DATA_DIR_COMPLETIONS = ( $env.ASDF_DATA_DIR | path join "completions/nushell.nu" )
