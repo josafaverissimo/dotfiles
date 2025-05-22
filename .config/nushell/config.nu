@@ -35,3 +35,12 @@ def hyprlog [] {
 }
 
 alias vrun = overlay use .venv/bin/activate.nu
+
+def jrun [file: string] {
+  let  filename = ($file | path basename)
+  let classname = ($filename | str replace ".java" "")
+
+  javac $file and if($env.LAST_EXIT_CODE == 0) {
+    java $classname
+  }
+}
