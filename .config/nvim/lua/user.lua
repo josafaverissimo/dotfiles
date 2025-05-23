@@ -1,3 +1,5 @@
+require "functions"
+
 vim.o.shell = "/usr/bin/nu"
 
 vim.keymap.set("n", "<A-k>", ":m-2<CR>")
