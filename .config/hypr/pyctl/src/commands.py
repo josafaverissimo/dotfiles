@@ -163,8 +163,9 @@ class Commands:
 
         return previous_workspace
 
-    def __send_window_to_worksace(self, window, workspace):
-        ...
+    @staticmethod
+    def __send_window_to_workspace(window: str, workspace: int):
+        run(f"hyprctl dispatch movetoworkspace {workspace},{window}")
 
     def back_workspace(self):
         previous_workspace = self.__get_previous_workspace()
@@ -188,7 +189,7 @@ class Commands:
         if not next_workspace:
             return
 
-        run(f"hyprctl dispatch movetoworkspace {next_workspace}")
+        self.__send_window_to_workspace("activewindow", next_workspace)
 
     def send_focused_to_previous_workspace(self):
         previous_workspace = self.__get_previous_workspace()
@@ -196,4 +197,4 @@ class Commands:
         if not previous_workspace:
             return
 
-        run(f"hyprctl dispatch movetoworkspace {previous_workspace}")
+        self.__send_window_to_workspace("activewindow", previous_workspace)
