@@ -2,6 +2,7 @@ from typing import Callable, cast
 import re
 import json
 
+from src.constants import MAX_WORKSPACES, MIN_WORKSPACES
 from src.types import OpacityDict
 from src.utils import run, CustomLogger
 from src.enums import ToggleOpacitySettingEnum
@@ -134,21 +135,7 @@ class Commands:
 
         return cast(int, json.loads(process.value)["id"])
 
-    def back_workspace(self):
-        current_workspace = self.__get_current_workspace()
-
-        if not current_workspace:
-            return
-
-        previous_workspace = current_workspace - 1
-        min_workspace = 1
-
-        if previous_workspace < min_workspace:
-            previous_workspace = 10
-
-        self.__change_worksace(previous_workspace)
-
-    def next_workspace(self):
+    def __get_next_workspace(self):
         current_workspace = self.__get_current_workspace()
 
         if not current_workspace:
@@ -157,9 +144,56 @@ class Commands:
         next_workspace = current_workspace + 1
         max_workspace = 10
 
-        logger.info(f"Going to workspace {next_workspace}")
-
         if next_workspace > max_workspace:
             next_workspace = 1
 
+        return next_workspace
+
+    def __get_previous_workspace(self) -> int | None:
+        current_workspace = self.__get_current_workspace()
+
+        if not current_workspace:
+            return
+
+        previous_workspace = current_workspace - 1
+        min_workspace = MIN_WORKSPACES
+
+        if previous_workspace < min_workspace:
+            previous_workspace = MAX_WORKSPACES
+
+        return previous_workspace
+
+    def __send_window_to_worksace(self, window, workspace):
+        ...
+
+    def back_workspace(self):
+        previous_workspace = self.__get_previous_workspace()
+
+        if not previous_workspace:
+            return
+
+        self.__change_worksace(previous_workspace)
+
+    def next_workspace(self):
+        next_workspace = self.__get_next_workspace()
+
+        if not next_workspace:
+            return
+
         self.__change_worksace(next_workspace)
+
+    def send_focused_to_next_workspace(self):
+        next_workspace = self.__get_next_workspace()
+
+        if not next_workspace:
+            return
+
+        run(f"hyprctl dispatch movetoworkspace {next_workspace}")
+
+    def send_focused_to_previous_workspace(self):
+        previous_workspace = self.__get_previous_workspace()
+
+        if not previous_workspace:
+            return
+
+        run(f"hyprctl dispatch movetoworkspace {previous_workspace}")
