@@ -106,7 +106,7 @@
 	},
 
 	"custom/gpu-temperature": {
-    "format": "{}°C ",
+    "format": "{}°C",
     "exec": "nvidia-smi --query-gpu=temperature.gpu --format=csv,noheader,nounits",
     "interval": 1
 	}
