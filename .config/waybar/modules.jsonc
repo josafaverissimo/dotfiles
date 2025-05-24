@@ -97,5 +97,17 @@
 			"<span color='#ff9977'>▇</span>", // orange
 			"<span color='#dd532e'>█</span>" // red
 		]
+	},
+
+	"custom/gpu-usage": {
+    "format": "{}%",
+    "exec": "nvidia-smi --query-gpu=utilization.gpu --format=csv,noheader,nounits",
+    "interval": 1
+	},
+
+	"custom/gpu-temperature": {
+    "format": "{}°C ",
+    "exec": "nvidia-smi --query-gpu=temperature.gpu --format=csv,noheader,nounits",
+    "interval": 1
 	}
 }

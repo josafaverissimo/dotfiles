@@ -30,6 +30,11 @@
 
 	"group/hardware": {
 		"orientation": "horizontal",
-		"modules": ["cpu", "temperature", "memory"]
+		"modules": ["cpu", "temperature", "memory", "group/gpu"]
+	},
+
+	"group/gpu": {
+		"orientation": "horizontal",
+		"modules": ["custom/gpu-usage", "custom/gpu-temperature"]
 	}
 }

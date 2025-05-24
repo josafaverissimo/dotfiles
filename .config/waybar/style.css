@@ -115,3 +115,11 @@ window#waybar.empty #window {
 	font-size: 11pt;
 	background-color: red;
 }
+
+#custom-gpu-temperature {
+	margin-left: 7px;
+}
+
+#custom-gpu-usage {
+	margin-left: 7px;
+}
