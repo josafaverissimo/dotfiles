@@ -63,3 +63,5 @@ def jrun [file: string] {
 
   java $classname
 }
+
+source $"($nu.home-path)/.cargo/env.nu"
