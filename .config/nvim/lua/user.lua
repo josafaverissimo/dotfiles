@@ -138,3 +138,20 @@ dap.configurations.rust = {
     program = function() return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/", "file") end,
   },
 }
+
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "slint",
+  callback = function()
+    vim.bo.expandtab = true
+    vim.bo.shiftwidth = 4
+    vim.bo.tabstop = 4
+    vim.bo.smartindent = false
+    vim.bo.autoindent = true
+    vim.bo.indentexpr = ""
+
+    -- Ao digitar {<CR>, quebra certinho e posiciona o cursor dentro das chaves
+    vim.keymap.set("i", "{<CR>", "{<CR>}<Esc>O<Tab>", { buffer = true })
+  end,
+})
+
+
