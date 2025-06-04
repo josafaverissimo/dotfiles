@@ -13,6 +13,8 @@ vim.api.nvim_set_hl(0, "DiagnosticUnderlineWarn", { undercurl = true, sp = "#f9e
 vim.api.nvim_set_hl(0, "DiagnosticUnderlineInfo", { undercurl = true, sp = "#89b4fa" })
 vim.api.nvim_set_hl(0, "DiagnosticUnderlineHint", { undercurl = true, sp = "#a6e3a1" })
 
+require'lspconfig'.qmlls.setup{}
+
 require("mason").setup()
 
 require("mason-lspconfig").setup {
@@ -87,16 +89,6 @@ require("lspconfig").ts_ls.setup {
     "typescriptreact",
     "typescript.tsx",
     "vue",
-  },
-}
-
-require("lspconfig").jdtls.setup {
-  settings = {
-    java = {
-      project = {
-        sourcePaths = { "." },
-      },
-    },
   },
 }
 

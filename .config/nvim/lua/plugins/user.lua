@@ -5,7 +5,6 @@ return {
   "andweeb/presence.nvim",
   "3rd/image.nvim",
   "OXY2DEV/markview.nvim",
-
   {
     "catppuccin/nvim",
     name = "catppuccin",
