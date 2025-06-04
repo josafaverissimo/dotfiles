@@ -1,13 +1,13 @@
 {
 	"layer": "top",
-	"position": "top",
+	"position": "bottom",
 	"mod": "dock",
 	"exclusive": true,
 	"passthrough": false,
 	"gtk-layer-shell": true,
-	"margin-top": 5,
+	"margin-top": -10,
 	"margin-left": 5,
-	"margin-bottom": -10,
+	"margin-bottom": 5,
 	"margin-right": 5,
 	"spacing": 5,
 
