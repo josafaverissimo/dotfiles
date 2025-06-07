@@ -38,13 +38,18 @@ class CustomLogger:
         return cls.__instances[name]
 
 
-def run(cmd: str) -> Result[str | None, str | None]:
+def run(
+    cmd: str,
+    /,
+    input_text: str | None = None,
+) -> Result[str | None, str | None]:
     try:
         process = subprocess.run(
             shlex.split(cmd),
             check=True,
             capture_output=True,
             text=True,
+            input=input_text,
         )
 
         return Result(process.stdout, None)

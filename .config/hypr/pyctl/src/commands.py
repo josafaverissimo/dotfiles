@@ -1,9 +1,8 @@
 from typing import Callable, cast
-import re
 import json
 
 from src.constants import MAX_WORKSPACES, MIN_WORKSPACES
-from src.types import OpacityDict
+from src.types import OpacityDict, WindowInfoDict
 from src.utils import run, CustomLogger
 from src.enums import ToggleOpacitySettingEnum
 
@@ -198,3 +197,32 @@ class Commands:
             return
 
         self.__send_window_to_workspace("activewindow", previous_workspace)
+
+    @staticmethod
+    def select_hypr_client():
+        windows = cast(
+            list[WindowInfoDict],
+            json.loads(cast(str, run("hyprctl clients -j").value)),
+        )
+
+        windows_by_initial_title = {
+            str(window["initialTitle"]): window for window in windows
+        }
+
+        windows_titles_string = "\n".join(
+            map(lambda window: window["initialTitle"], windows)
+        )
+
+        selected_window_initial_title = (run(
+            "wofi --dmenu", input_text=windows_titles_string
+        ).value or "").replace("\n", "")
+
+        window_address = windows_by_initial_title.get(
+            selected_window_initial_title,
+            {}
+        ).get("address")
+
+        if not window_address:
+            return
+
+        run(f"hyprctl dispatch focuswindow address:{window_address}")
