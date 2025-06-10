@@ -7,6 +7,6 @@ CapsLock & l::SendInput, {Blind}{Right}
 
 CapsLock::Return
 
-Insert::LWin
+RAlt::LWin
 
 LWin::NumLock
