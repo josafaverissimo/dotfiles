@@ -27,6 +27,7 @@ require("mason-lspconfig").setup {
     "rust_analyzer",
     "biome",
     "jdtls",
+    "gopls"
   },
   automatic_installation = true,
 }
@@ -62,6 +63,8 @@ require("lspconfig").biome.setup {
     ".git"
   ),
 }
+
+require("lspconfig").gopls.setup {}
 
 require("lspconfig").volar.setup {
   init_options = {
