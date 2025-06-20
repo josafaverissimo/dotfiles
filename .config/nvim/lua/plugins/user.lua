@@ -6,6 +6,14 @@ return {
   "3rd/image.nvim",
   "OXY2DEV/markview.nvim",
   {
+    "vyfor/cord.nvim",
+    lazy = false,
+    opts = {},
+    config = function(_, opts)
+      require("cord").setup(opts)
+    end,
+  },
+  {
     "catppuccin/nvim",
     name = "catppuccin",
     opts = {
