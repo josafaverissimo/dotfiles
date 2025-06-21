@@ -28,7 +28,7 @@ tooltip {
 
 #workspaces {
 	background: rgba(17, 17, 27, 0.7);
-	border-radius: 1rem;
+	border-radius: .5rem;
 	padding: 0.5em;
 }
 
@@ -70,7 +70,7 @@ tooltip {
 	background-color: rgba(17, 17, 27, 0.7);
 	margin: 0 0 0 0;
 	padding: 0 7px;
-	border-radius: 18px;
+	border-radius: .5rem;
 	border: none;
 }
 
@@ -101,7 +101,7 @@ tooltip {
 #window {
 	background: #dce0e8;
 	color: #4c4f69;
-	border-radius: 1rem;
+	border-radius: .5rem;
 	padding: 0 15px;
 	margin-left: 20px;
 	margin-right: 20px;
