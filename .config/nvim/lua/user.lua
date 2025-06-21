@@ -9,9 +9,8 @@ vim.keymap.set("n", "<leader>ng", ":Neotree git_status<CR>")
 vim.keymap.set("n", "gi", vim.lsp.buf.definition, { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "<leader>s", [[:%s/\s\+$//e<CR>]], { noremap = true, silent = true })
 
-
-vim.keymap.set('n', 'S-l', '')
-vim.keymap.set('n', 'S-h', '')
+vim.keymap.set('n', 'H', '<Nop>')
+vim.keymap.set('n', 'L', '<Nop>')
 
 vim.api.nvim_set_hl(0, "DiagnosticUnderlineError", { undercurl = true, sp = "#f38ba8" })
 vim.api.nvim_set_hl(0, "DiagnosticUnderlineWarn", { undercurl = true, sp = "#f9e2af" })
