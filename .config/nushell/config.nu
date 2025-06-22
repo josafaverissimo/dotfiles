@@ -65,3 +65,5 @@ def jrun [file: string] {
 }
 
 source $"($nu.home-path)/.cargo/env.nu"
+
+alias astronvim = env NVIM_APPNAME=astronvim nvim

@@ -4,7 +4,7 @@ return {
   config = function()
     local home = os.getenv("HOME")
     local jdtls = require("jdtls")
-    local jdtls_base_path = home .. "/.local/share/nvim/mason/packages/jdtls"
+    local jdtls_base_path = home .. "/.local/share/astronvim/mason/packages/jdtls"
     local jdtls_bin = jdtls_base_path .. "/bin/jdtls"
     local jdtls_launcher = jdtls_base_path .. "/plugins/org.eclipse.equinox.launcher_*.jar"
     local jdtls_lombok = jdtls_base_path .. "/lombok.jar"
