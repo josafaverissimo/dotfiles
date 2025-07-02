@@ -1,0 +1,6 @@
+require('lazy-setup')
+require('options')
+require('keymaps')
+require('colorscheme')
+require('lsp')
+require('diagnostics')

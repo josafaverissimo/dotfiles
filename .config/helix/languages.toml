@@ -1,0 +1,10 @@
+[language-server.jdtls]
+command = "jdtls"
+args = ["-data", "~/.cache/jdtls/workspace"]
+
+[[language]]
+name = "java"
+scope = "source.java"
+file-types = ["java"]
+roots = ["pom.xml", "build.gradle", ".git"]
+language-servers = ["jdtls"]  
