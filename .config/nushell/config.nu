@@ -67,3 +67,4 @@ def jrun [file: string] {
 source $"($nu.home-path)/.cargo/env.nu"
 
 alias astronvim = env NVIM_APPNAME=astronvim nvim
+alias nvchad = env NVIM_APPNAME=nvchad nvim
