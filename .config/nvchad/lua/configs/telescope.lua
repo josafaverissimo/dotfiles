@@ -1,19 +1,3 @@
-require("telescope").setup {
-  defaults = {
-    find_files = {
-      "rg",
-      "--color=never",
-      "--no-heading",
-      "--with-filename",
-      "--line-number",
-      "--column",
-      "--smart-case",
-      -- Adiciona isso:
-      "--ignore-case",
-    },
-  },
-}
-
 local map = vim.keymap.set
 local builtin = require "telescope.builtin"
 
