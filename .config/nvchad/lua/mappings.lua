@@ -39,4 +39,7 @@ map("n", "<leader>gg", function()
   vim.cmd "startinsert"
 end, { desc = "Open LazyGit in float" })
 
+map({ "v", "n" }, "<S-h>", "<Nop>")
+map({ "v", "n" }, "<S-l>", "<Nop>")
+
 -- map({ "n", "i", "v" }, "<C-s>", "<cmd> w <cr>")
