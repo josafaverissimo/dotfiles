@@ -10,6 +10,7 @@ map("i", "jk", "<ESC>")
 map("n", "gl", vim.diagnostic.open_float, { desc = "diagnostic" })
 map("n", "<A-k>", ":m-2<CR>", { desc = "Move line to up" })
 map("n", "<A-j>", ":m+1<CR>", { desc = "Movel line to down" })
+map("n", "<leader>la", vim.lsp.buf.code_action, { desc = "LSP code action" })
 map("n", "<leader>q", function()
   vim.cmd "wa"
   vim.cmd "qa"
