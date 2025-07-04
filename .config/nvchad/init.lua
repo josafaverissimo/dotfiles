@@ -33,8 +33,7 @@ require "options"
 require "autocmds"
 
 require "configs.gitsigns"
-
-
+require "configs.telescope"
 
 vim.schedule(function()
   require "mappings"
