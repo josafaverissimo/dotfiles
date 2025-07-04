@@ -32,8 +32,9 @@ dofile(vim.g.base46_cache .. "statusline")
 require "options"
 require "autocmds"
 
-require "configs.gitsigns"
-require "configs.telescope"
+require "configs.gitsigns-setup"
+require "configs.telescope-setup"
+require "configs.nvim-tree-setup"
 
 vim.schedule(function()
   require "mappings"
