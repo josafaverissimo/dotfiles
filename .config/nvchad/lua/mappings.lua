@@ -7,71 +7,36 @@ local map = vim.keymap.set
 map("n", ";", ":", { desc = "CMD enter command mode" })
 map("i", "jk", "<ESC>")
 map("n", "gl", vim.diagnostic.open_float, { desc = "diagnostic" })
-map("n", "<leader>gr", ':Gitsigns reset_hunk<CR>', { desc = "Git reset hunk" })
-map("n", "<leader>gr", ':Gitsigns reset_buffer<CR>', { desc = "Git reset buffer" })
+map("n", "<A-k>", ":m-2<CR>", { desc = "Move line to up" })
+map("n", "<A-j>", ":m+1<CR>", { desc = "Movel line to down" })
 
--- Git signs
+map("n", "<leader>gg", function()
+  local buf = vim.api.nvim_create_buf(false, true)
 
-local gitsigns = require('gitsigns')
+  local win = vim.api.nvim_open_win(buf, true, {
+    relative = "editor",
+    width = math.floor(vim.o.columns * 0.8),
+    height = math.floor(vim.o.lines * 0.8),
+    row = math.floor(vim.o.lines * 0.1),
+    col = math.floor(vim.o.columns * 0.1),
+    style = "minimal",
+    border = "rounded",
+  })
 
-    local function map(mode, l, r, opts)
-      opts = opts or {}
-      opts.buffer = bufnr
-      vim.keymap.set(mode, l, r, opts)
-    end
-
-    -- Navigation
-    map('n', ']c', function()
-      if vim.wo.diff then
-        vim.cmd.normal({']c', bang = true})
-      else
-        gitsigns.nav_hunk('next')
+  vim.fn.jobstart({ "lazygit" }, {
+    term = true,
+    cwd = vim.loop.cwd(),
+    on_exit = function(_, _)
+      if vim.api.nvim_win_is_valid(win) then
+        vim.api.nvim_win_close(win, true)
       end
-    end)
+    end,
+    -- conecta job ao buffer do terminal
+    stdout_buffered = true,
+    buffer = buf,
+  })
 
-    map('n', '[c', function()
-      if vim.wo.diff then
-        vim.cmd.normal({'[c', bang = true})
-      else
-        gitsigns.nav_hunk('prev')
-      end
-    end)
-
-    -- Actions
-    map('n', '<leader>hs', gitsigns.stage_hunk)
-    map('n', '<leader>hr', gitsigns.reset_hunk)
-
-    map('v', '<leader>hs', function()
-      gitsigns.stage_hunk({ vim.fn.line('.'), vim.fn.line('v') })
-    end)
-
-    map('v', '<leader>hr', function()
-      gitsigns.reset_hunk({ vim.fn.line('.'), vim.fn.line('v') })
-    end)
-
-    map('n', '<leader>hS', gitsigns.stage_buffer)
-    map('n', '<leader>hR', gitsigns.reset_buffer)
-    map('n', '<leader>hp', gitsigns.preview_hunk)
-    map('n', '<leader>hi', gitsigns.preview_hunk_inline)
-
-    map('n', '<leader>hb', function()
-      gitsigns.blame_line({ full = true })
-    end)
-
-    map('n', '<leader>hd', gitsigns.diffthis)
-
-    map('n', '<leader>hD', function()
-      gitsigns.diffthis('~')
-    end)
-
-    map('n', '<leader>hQ', function() gitsigns.setqflist('all') end)
-    map('n', '<leader>hq', gitsigns.setqflist)
-
-    -- Toggles
-    map('n', '<leader>tb', gitsigns.toggle_current_line_blame)
-    map('n', '<leader>tw', gitsigns.toggle_word_diff)
-
-    -- Text object
-    map({'o', 'x'}, 'ih', gitsigns.select_hunk)
+  vim.cmd "startinsert"
+end, { desc = "Open LazyGit in float" })
 
 -- map({ "n", "i", "v" }, "<C-s>", "<cmd> w <cr>")
