@@ -29,7 +29,6 @@ require("mason-lspconfig").setup {
     "ruff",
     "tailwindcss",
     "rust_analyzer",
-    "biome",
     "jdtls",
     "gopls"
   },
@@ -57,16 +56,6 @@ local MASON_PACKAGE_PATH = vim.fn.expand "~/.local/share/nvim/mason/packages"
 local VOLAR_TS_PLUGIN = MASON_PACKAGE_PATH
   .. "/vue-language-server/node_modules/@vue/language-server/node_modules/@vue/typescript-plugin"
 local TS_PATH = MASON_PACKAGE_PATH .. "/typescript-language-server/node_modules/typescript/lib"
-
-require("lspconfig").biome.setup {
-  root_dir = require("lspconfig.util").root_pattern(
-    "biome.json",
-    "biome.jsonc",
-    "biome.config.json",
-    "package.json",
-    ".git"
-  ),
-}
 
 require("lspconfig").gopls.setup {}
 

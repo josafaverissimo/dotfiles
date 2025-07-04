@@ -44,3 +44,5 @@ $env.ASDF_DATA_DIR = (
 $env.ASDF_DATA_DIR_COMPLETIONS = ( $env.ASDF_DATA_DIR | path join "completions/nushell.nu" )
 
 $env.VIRTUAL_ENV_DISABLE_PROMPT = true
+
+$env.PAGER = 'less'
