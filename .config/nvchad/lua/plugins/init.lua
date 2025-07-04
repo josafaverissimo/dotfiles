@@ -17,10 +17,10 @@ return {
   -- { import = "nvchad.blink.lazyspec" },
 
   {
-  	"nvim-treesitter/nvim-treesitter",
-  	opts = {
-  		ensure_installed = {
-  			"vim",
+    "nvim-treesitter/nvim-treesitter",
+    opts = {
+      ensure_installed = {
+        "vim",
         "lua",
         "vimdoc",
         "html",
@@ -28,8 +28,8 @@ return {
         "nu",
         "typescript",
         "python",
-        "java"
-  		},
-  	},
+        "java",
+      },
+    },
   },
 }
