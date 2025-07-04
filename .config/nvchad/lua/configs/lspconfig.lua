@@ -6,7 +6,10 @@ local servers = {
   ts_ls = {},
   jdtls = {},
   gopls = {},
-  biome = {}
+  biome = {},
+  tailwindcss  = {},
+  templ = {},
+  pyright = {}
 }
 
 for name, opts in pairs(servers) do
