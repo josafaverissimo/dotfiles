@@ -6,6 +6,7 @@ local servers = {
   "ts_ls",
   "jdtls",
   "lua_ls",
+  "gopls",
   "biome"
 }
 vim.lsp.enable(servers)
