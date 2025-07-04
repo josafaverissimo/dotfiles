@@ -1,14 +1,17 @@
 require("nvchad.configs.lspconfig").defaults()
 
 local servers = {
-  "html",
-  "cssls",
-  "ts_ls",
-  "jdtls",
-  "lua_ls",
-  "gopls",
-  "biome"
+  html = {},
+  cssls = {},
+  ts_ls = {},
+  jdtls = {},
+  gopls = {},
+  biome = {}
 }
-vim.lsp.enable(servers)
+
+for name, opts in pairs(servers) do
+  vim.lsp.enable(name)
+  vim.lsp.config(name, opts)
+end
 
 -- read :h vim.lsp.config for changing options of lsp servers 
