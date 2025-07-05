@@ -49,5 +49,6 @@ map({ "v", "n" }, "<S-h>", "<Nop>")
 map({ "v", "n" }, "<S-l>", "<Nop>")
 
 nomap("n", "<leader>n")
+nomap("n", ";")
 
 -- map({ "n", "i", "v" }, "<C-s>", "<cmd> w <cr>")
