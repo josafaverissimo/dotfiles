@@ -1,5 +1,7 @@
 require "nvchad.options"
 
+vim.o.shell = '/usr/bin/nu'
+
 vim.opt.relativenumber = true
 vim.opt.colorcolumn = "80,120"
 vim.opt.wrap = false
