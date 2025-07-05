@@ -25,3 +25,17 @@ vim.api.nvim_create_autocmd({ "BufEnter", "CursorHold", "InsertLeave" }, {
     vim.lsp.codelens.refresh()
   end,
 })
+
+vim.api.nvim_create_autocmd("LspAttach", {
+  callback = function(args)
+    local client = vim.lsp.get_client_by_id(args.data.client_id)
+
+    if client and client.server_capabilities.semanticTokensProvider then
+      client.server_capabilities.semanticTokensProvider = nil
+    end
+
+    vim.schedule(function()
+      pcall(vim.cmd, "TSBufEnable highlight")
+    end)
+  end,
+})
