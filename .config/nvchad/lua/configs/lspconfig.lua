@@ -7,9 +7,11 @@ local servers = {
   jdtls = {},
   gopls = {},
   biome = {},
-  tailwindcss  = {},
+  tailwindcss = {},
   templ = {},
-  pyright = {}
+  pyright = {},
+  kotlin_lsp = {},
+  rust_analyzer = {},
 }
 
 for name, opts in pairs(servers) do
@@ -17,4 +19,4 @@ for name, opts in pairs(servers) do
   vim.lsp.config(name, opts)
 end
 
--- read :h vim.lsp.config for changing options of lsp servers 
+-- read :h vim.lsp.config for changing options of lsp servers

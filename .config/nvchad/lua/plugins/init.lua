@@ -29,6 +29,8 @@ return {
         "typescript",
         "python",
         "java",
+        "kotlin",
+        "rust"
       },
     },
   },
