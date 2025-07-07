@@ -36,7 +36,6 @@ map("n", "<leader>gg", function()
         vim.api.nvim_win_close(win, true)
       end
     end,
-    -- conecta job ao buffer do terminal
     stdout_buffered = true,
     buffer = buf,
   })
@@ -46,8 +45,9 @@ end, { desc = "Open LazyGit in float" })
 
 map({ "v", "n" }, "<S-h>", "<Nop>")
 map({ "v", "n" }, "<S-l>", "<Nop>")
+map({ "n", "i", "v", "c", "t" }, "<C-z>", "<Nop>", { noremap = true, silent = true })
 
 nomap("n", "<leader>n")
 nomap("n", ";")
 
--- map({ "n", "i", "v" }, "<C-s>", "<cmd> w <cr>")
+map({ "n", "i", "v" }, "<C-s>", "<cmd> w <cr>")
