@@ -6,7 +6,6 @@ local servers = {
   ts_ls = {},
   jdtls = {},
   gopls = {},
-  biome = {},
   tailwindcss = {},
   templ = {},
   pyright = {},
