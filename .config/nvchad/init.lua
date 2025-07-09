@@ -33,10 +33,10 @@ require "options"
 require "usercmds"
 require "autocmds"
 
-require "configs.gitsigns-setup"
-require "configs.telescope-setup"
-require "configs.nvim-tree-setup"
-
 vim.schedule(function()
   require "mappings"
+
+  require "configs.gitsigns-setup"
+  require "configs.telescope-setup"
+  require "configs.nvim-tree-setup"
 end)

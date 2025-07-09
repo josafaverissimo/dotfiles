@@ -1,15 +1,21 @@
 local map = vim.keymap.set
 local builtin = require "telescope.builtin"
-local actions = require "telescope.actions"
 
-map("n", "<leader>ff", builtin.find_files, { desc = "Telescope find files" })
+
+map("n", "<leader>ff", function()
+  builtin.find_files { path_display = { "smart" } }
+end, { desc = "Telescope find files", noremap = true, silent = true })
+
 map("n", "<leader>fF", function()
-  builtin.find_files { hidden = true, no_ignore = true }
+  builtin.find_files { path_display = { "smart" }, hidden = true, no_ignore = true }
 end, { desc = "Telescope find hidden files" })
+
 map("n", "<leader>fw", builtin.live_grep, { desc = "Telescope live grep" })
+
 map("n", "<leader>fW", function()
   builtin.live_grep { additional_args = { "--hidden", "--no-ignore" } }
 end, { desc = "Telescope live grep hidden files" })
+
 map("n", "<leader>fb", builtin.buffers, { desc = "Telescope buffers" })
 map("n", "<leader>fh", builtin.help_tags, { desc = "Telescope help tags" })
 map("n", "<leader>fg", builtin.git_status, { desc = "Telescope git status" })

@@ -30,7 +30,8 @@ return {
         "python",
         "java",
         "kotlin",
-        "rust"
+        "rust",
+        "prisma"
       },
     },
   },

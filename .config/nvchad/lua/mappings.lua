@@ -1,7 +1,7 @@
 require "nvchad.mappings"
 
 -- add yours here
-
+local builtin = require "telescope.builtin"
 local map = vim.keymap.set
 local nomap = vim.keymap.del
 
@@ -11,6 +11,11 @@ map("n", "gl", vim.diagnostic.open_float, { desc = "diagnostic" })
 map("n", "<A-k>", ":m-2<CR>", { desc = "Move line to up" })
 map("n", "<A-j>", ":m+1<CR>", { desc = "Movel line to down" })
 map("n", "<leader>la", vim.lsp.buf.code_action, { desc = "LSP code action" })
+
+map("n", "<leader>bc", function()
+  vim.cmd "%bd | e# | bd#"
+end, { desc = "Close all and keep current buffer" })
+
 map("n", "<leader>q", function()
   vim.cmd "wa | qa"
 end, { desc = "Save and close all buffers" })
@@ -49,5 +54,6 @@ map({ "n", "i", "v", "c", "t" }, "<C-z>", "<Nop>", { noremap = true, silent = tr
 
 nomap("n", "<leader>n")
 nomap("n", ";")
+nomap("n", "<leader>b")
 
 map({ "n", "i", "v" }, "<C-s>", "<cmd> w <cr>")
