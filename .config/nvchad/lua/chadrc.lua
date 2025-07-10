@@ -21,6 +21,10 @@ M.ui = {
   tabufline = {
     lazyload = false,
   },
+
+  statusline = {
+    separator_style = "block"
+  }
 }
 
 return M
