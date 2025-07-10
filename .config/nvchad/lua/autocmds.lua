@@ -8,20 +8,21 @@ end
 
 vim.api.nvim_create_autocmd({ "InsertLeave", "TextChanged" }, {
   callback = function()
-    if #vim.api.nvim_buf_get_name(0) ~= 0 and vim.bo.buflisted then
-      vim.cmd "silent w"
+    local name = vim.api.nvim_buf_get_name(0)
+    local buftype = vim.bo.buftype
 
-      local time = os.date "%I:%M %p"
+    if name ~= "" and buftype == "" and vim.bo.buflisted then
+      vim.schedule(function()
+        vim.cmd "silent w"
 
-      vim.api.nvim_echo(
-        {
+        local time = os.date "%I:%M %p"
+
+        vim.api.nvim_echo({
           { "󰄳", "LazyProgressDone" },
-          { " file autosaved at " .. time }
-        },
-        false,
-        {}
-      )
-      clear_cmdarea()
+          { " file autosaved at " .. time },
+        }, false, {})
+        clear_cmdarea()
+      end)
     end
   end,
 })
