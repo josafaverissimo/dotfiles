@@ -1,11 +1,9 @@
 require "nvchad.mappings"
 
 -- add yours here
-local builtin = require "telescope.builtin"
 local map = vim.keymap.set
 local nomap = vim.keymap.del
 
-map("n", ";", ":", { desc = "CMD enter command mode" })
 map("i", "jk", "<ESC>")
 map("n", "gl", vim.diagnostic.open_float, { desc = "diagnostic" })
 map("n", "<A-k>", ":m-2<CR>", { desc = "Move line to up" })
@@ -53,7 +51,6 @@ map({ "v", "n" }, "<S-l>", "<Nop>")
 map({ "n", "i", "v", "c", "t" }, "<C-z>", "<Nop>", { noremap = true, silent = true })
 
 nomap("n", "<leader>n")
-nomap("n", ";")
 nomap("n", "<leader>b")
 
 map({ "n", "i", "v" }, "<C-s>", "<cmd> w <cr>")
