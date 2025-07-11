@@ -4,7 +4,8 @@ return {
   config = function()
     local home = os.getenv "HOME"
     local jdtls = require "jdtls"
-    local jdtls_base_path = home .. "/.local/share/nvim/mason/packages/jdtls"
+    local mason_base_path = home .. "/.local/share/nvim/mason"
+    local jdtls_base_path = mason_base_path .. "/packages/jdtls"
     local jdtls_bin = jdtls_base_path .. "/bin/jdtls"
     local jdtls_launcher = jdtls_base_path .. "/plugins/org.eclipse.equinox.launcher_*.jar"
     local jdtls_lombok = jdtls_base_path .. "/lombok.jar"
@@ -12,8 +13,19 @@ return {
     local root_markers = { "gradlew", "mvnw", ".git" }
     local root_dir = vim.fs.root(0, root_markers)
     local workspace_folder = jdtls_base_path .. "/workspaces/" .. vim.fn.fnamemodify(root_dir, ":p:h:t")
+    local java_debug_partial_path =
+      "/packages/java-debug-adapter/extension/server/com.microsoft.java.debug.plugin-*.jar"
+    local java_debug_base_path = mason_base_path .. java_debug_partial_path
+    local java_test = mason_base_path .. "/packages/java-test/extension/server/*.jar"
+    local bundles = {
+      vim.fn.glob(java_debug_base_path)
+    }
+    vim.list_extend(bundles, vim.split(vim.fn.glob(java_test, 1), "\n"))
 
     local config = {
+      init_options = {
+        bundles = bundles
+      },
       cmd = {
         jdtls_bin,
         "-Declipse.application=org.eclipse.jdt.ls.core.id1",

@@ -39,4 +39,5 @@ vim.schedule(function()
   require "configs.gitsigns-setup"
   require "configs.telescope-setup"
   require "configs.nvim-tree-setup"
+  require "configs.nvim-dap-setup"
 end)
