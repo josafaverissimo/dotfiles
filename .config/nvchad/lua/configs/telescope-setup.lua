@@ -2,8 +2,7 @@ local map = vim.keymap.set
 local telescope = require "telescope"
 local builtin = require "telescope.builtin"
 
-
-map("n", "<leader>ff", builtin.find_files, { desc = "Telescope find files"})
+map("n", "<leader>ff", builtin.find_files, { desc = "Telescope find files" })
 
 map("n", "<leader>fF", function()
   builtin.find_files { hidden = true, no_ignore = true }
@@ -23,6 +22,9 @@ map("n", "<leader>fr", builtin.lsp_references, { desc = "Telescope lsp reference
 map("n", "<leader>fd", builtin.diagnostics, { desc = "Telescope diagnostics" })
 
 telescope.setup {
+  extensions = {
+  },
+
   defaults = {
     path_display = { "smart" },
     mappings = {
@@ -32,3 +34,6 @@ telescope.setup {
     },
   },
 }
+
+telescope.load_extension "dap"
+telescope.load_extension "zf-native"

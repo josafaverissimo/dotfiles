@@ -1,8 +1,13 @@
+local telescope = require "telescope"
 local mason_dap = require "mason-nvim-dap"
 local map = vim.keymap.set
 local dap = require "dap"
 local ui = require "dapui"
 local dap_virtual_text = require "nvim-dap-virtual-text"
+local home = os.getenv "HOME"
+local mason_path = home .. "/.local/share/nvim/mason"
+local js_dap_debug_server = mason_path .. "/packages/js-debug-adapter/js-debug/src/dapDebugServer.js"
+local js_chrome_debug = mason_path .. "/packages/chrome-debug-adapter/out/src/chromeDebug.js"
 
 -- Dap Virtual Text
 dap_virtual_text.setup()
@@ -17,14 +22,42 @@ mason_dap.setup {
   },
 }
 
+dap.adapters = {
+  ["pwa-node"] = {
+    type = "server",
+    host = "localhost",
+    port = 9229,
+    executable = {
+      command = "node",
+      args = { js_dap_debug_server, "9229" },
+    },
+  },
+}
+
 -- Configurations
 dap.configurations = {
   java = {
     {
       type = "java",
-      name = "Debug",
+      name = "Debug file",
       request = "launch",
       program = "${file}",
+    },
+  },
+  typescript = {
+    {
+      type = "pwa-node",
+      request = "launch",
+      name = "Launch file (Deno)",
+      runtimeExecutable = "deno",
+      runtimeArgs = {
+        "run",
+        "--inspect-wait",
+        "--allow-all",
+      },
+      program = "${file}",
+      cwd = "${workspaceFolder}",
+      attachSimplePort = 9229,
     },
   },
 }
@@ -83,9 +116,7 @@ map("n", "<leader>dq", function()
   require("nvim-dap-virtual-text").toggle()
 end, { desc = "Terminate" })
 
-map("n", "<leader>db", function()
-  require("dap").list_breakpoints()
-end, { desc = "List Breakpoints" })
+map("n", "<leader>db", telescope.extensions.dap.list_breakpoints, { desc = "List Breakpoints" })
 
 map("n", "<leader>de", function()
   require("dap").set_exception_breakpoints { "all" }
