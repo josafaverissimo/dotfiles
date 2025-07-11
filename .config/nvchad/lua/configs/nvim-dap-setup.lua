@@ -7,10 +7,11 @@ local dap_virtual_text = require "nvim-dap-virtual-text"
 local home = os.getenv "HOME"
 local mason_path = home .. "/.local/share/nvim/mason"
 local js_dap_debug_server = mason_path .. "/packages/js-debug-adapter/js-debug/src/dapDebugServer.js"
-local js_chrome_debug = mason_path .. "/packages/chrome-debug-adapter/out/src/chromeDebug.js"
 
 -- Dap Virtual Text
 dap_virtual_text.setup()
+
+dap.set_log_level "DEBUG"
 
 mason_dap.setup {
   ensure_installed = { "java-debug-adapter" },
