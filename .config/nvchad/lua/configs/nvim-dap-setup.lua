@@ -18,7 +18,7 @@ mason_dap.setup {
   automatic_installation = true,
   handlers = {
     function(config)
-      require("mason-nvim-dap").default_setup(config)
+      mason_dap.default_setup(config)
     end,
   },
 }
@@ -27,10 +27,10 @@ dap.adapters = {
   ["pwa-node"] = {
     type = "server",
     host = "localhost",
-    port = 9229,
+    port = "${port}",
     executable = {
       command = "node",
-      args = { js_dap_debug_server, "9229" },
+      args = { js_dap_debug_server, "${port}" },
     },
   },
 }
@@ -59,6 +59,17 @@ dap.configurations = {
       program = "${file}",
       cwd = "${workspaceFolder}",
       attachSimplePort = 9229,
+      console = "integratedTerminal",
+    },
+    {
+      type = "pwa-node",
+      request = "launch",
+      name = "Launch file (Bun - Almost)",
+      runtimeExecutable = "bun",
+      runtimeArgs = { "--inspect-wait" },
+      program = "${file}",
+      cwd = "${workspaceFolder}",
+      console = "integratedTerminal",
     },
   },
 }

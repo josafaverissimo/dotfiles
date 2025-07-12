@@ -18,13 +18,13 @@ return {
     local java_debug_base_path = mason_base_path .. java_debug_partial_path
     local java_test = mason_base_path .. "/packages/java-test/extension/server/*.jar"
     local bundles = {
-      vim.fn.glob(java_debug_base_path)
+      vim.fn.glob(java_debug_base_path),
     }
     vim.list_extend(bundles, vim.split(vim.fn.glob(java_test, 1), "\n"))
 
     local config = {
       init_options = {
-        bundles = bundles
+        bundles = bundles,
       },
       cmd = {
         jdtls_bin,
@@ -50,6 +50,10 @@ return {
       root_dir = root_dir,
       settings = {
         java = {
+          init_options = {
+            bundles = bundles,
+          },
+
           project = {
             sourcePaths = { "." },
           },
@@ -67,40 +71,6 @@ return {
               {
                 name = "JavaSE-17",
                 path = home .. "/.asdf/installs/java/openjdk-17",
-              },
-            },
-          },
-          import = {
-            gradle = {
-              enabled = true,
-              wrapper = {
-                enabled = true,
-                checksums = {
-                  {
-                    sha256 = "7d3a4ac4de1c32b59bc6a4eb8ecb8e612ccd0cf1ae1e99f66902da64df296172",
-                    allowed = true,
-                  },
-                },
-              },
-            },
-          },
-          init_options = {
-            settings = {
-              java = {
-                import = {
-                  gradle = {
-                    enabled = true,
-                    wrapper = {
-                      enabled = true,
-                      checksums = {
-                        {
-                          sha256 = "7d3a4ac4de1c32b59bc6a4eb8ecb8e612ccd0cf1ae1e99f66902da64df296172",
-                          allowed = true,
-                        },
-                      },
-                    },
-                  },
-                },
               },
             },
           },
