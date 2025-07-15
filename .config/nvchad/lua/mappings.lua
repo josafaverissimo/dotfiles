@@ -9,6 +9,10 @@ map("n", "gl", vim.diagnostic.open_float, { desc = "diagnostic" })
 map("n", "<A-k>", ":m-2<CR>", { desc = "Move line to up" })
 map("n", "<A-j>", ":m+1<CR>", { desc = "Movel line to down" })
 map("n", "<leader>la", vim.lsp.buf.code_action, { desc = "LSP code action" })
+map("n", "<C-Right>", ":vertical resize +5<CR>", { desc = "Vertical Resize" })
+map("n", "<C-Left>", ":vertical resize -5<CR>", { desc = "Vertical Resize" })
+map("n", "<C-Up>", ":resize +5<CR>", { desc = "horizontal Resize" })
+map("n", "<C-Down>", ":resize -5<CR>", { desc = "Horizontal Resize" })
 
 map("n", "<leader>bc", function()
   vim.cmd "%bd | e# | bd#"

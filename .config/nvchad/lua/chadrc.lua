@@ -24,6 +24,10 @@ M.ui = {
 
   statusline = {
     separator_style = "block"
+  },
+
+  telescope = {
+    style = "bordered"
   }
 }
 
