@@ -7,6 +7,24 @@ CapsLock & l::SendInput, {Blind}{Right}
 
 CapsLock::Return
 
-RAlt::LWin
+#2::Send, ^#{Right}
+#1::Send, ^#{Left}
 
-LWin::NumLock
+#SingleInstance Force
+
+taskBarState=0
+ RCtrl::
+ global taskBarState
+    if (taskBarState =1) {
+        WinHide ahk_class Shell_TrayWnd
+        WinHide Start ahk_class Button
+        taskBarState:=0
+    }
+    else {
+        WinShow ahk_class Shell_TrayWnd
+        WinShow Start ahk_class Button
+        taskBarState:=1
+        Send, {RCtrl down} ;passthru the keypress to show the start menu
+    	Send, {RCtrl up}
+    }
+ return
