@@ -49,6 +49,12 @@ def glgc [path: string = "."] {
     | reverse
 }
 
+def dimgs [] {
+  docker image ls --format '{{json .}}'
+    | from json --objects
+    | select Repository Tag ID Size CreatedSince
+}
+
 alias vrun = overlay use .venv/bin/activate.nu
 
 def jrun [file: string] {
