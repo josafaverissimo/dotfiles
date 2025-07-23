@@ -46,7 +46,7 @@ local function my_on_attach(bufnr)
   vim.keymap.set("n", "h", api.tree.close, opts "Close")
   vim.keymap.set("n", "H", api.tree.collapse_all, opts "Collapse All")
   vim.keymap.set("n", "j", "j^", opts "Down")
-  vim.keymap.set("n", "k", "k", opts "Up")
+  vim.keymap.set("n", "k", "k^", opts "Up")
 end
 
 -- pass to setup along with your other options
