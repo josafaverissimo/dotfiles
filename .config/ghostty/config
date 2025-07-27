@@ -50,3 +50,7 @@ theme = Abernathy
 gtk-adwaita = false
 command = /usr/bin/nu --login --interactive
 confirm-close-surface = false
+
+keybind = ctrl+enter=unbind
+keybind = ctrl+e=unbind
+keybind = ctrl+o=unbind
