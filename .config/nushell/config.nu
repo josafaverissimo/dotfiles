@@ -24,6 +24,16 @@ source ~/.zoxide.nu
 
 source "~/.asdf/completions/nushell.nu"
 
+source $"($nu.home-path)/.cargo/env.nu"
+
+# aliases
+
+alias astronvim = env NVIM_APPNAME=astronvim nvim
+alias nvchad = env NVIM_APPNAME=nvchad nvim
+alias vrun = overlay use .venv/bin/activate.nu
+
+# Functions
+
 def hyprlog [] {
   ls ($env.XDG_RUNTIME_DIR | path join "hypr")
   | sort-by modified
@@ -53,9 +63,15 @@ def dimgs [] {
   docker image ls --format '{{json .}}'
     | from json --objects
     | select Repository Tag ID Size CreatedSince
+    | rename repository tag id size created
 }
 
-alias vrun = overlay use .venv/bin/activate.nu
+def dcnts [] {
+  docker container ls -a --format '{{json .}}' 
+    | from json --objects 
+    | select ID Image Names Ports Status Command RunningFor
+    | rename id image name ports status command created
+}
 
 def jrun [file: string] {
   let  filename = ($file | path basename)
@@ -70,7 +86,3 @@ def jrun [file: string] {
   java $classname
 }
 
-source $"($nu.home-path)/.cargo/env.nu"
-
-alias astronvim = env NVIM_APPNAME=astronvim nvim
-alias nvchad = env NVIM_APPNAME=nvchad nvim
