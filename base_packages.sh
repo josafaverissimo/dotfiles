@@ -32,6 +32,7 @@ dev=(
 )
 
 utils=(
+  hyprshell
   fzf
   zoxide
   network-manager-applet
