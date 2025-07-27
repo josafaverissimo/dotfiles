@@ -13,7 +13,11 @@ key = "x"
 [windows.overview.launcher]
 default_terminal = "ghostty"
 
-[windows.overview.launcher.plugins.terminal]
+[windows.overview.launcher.plugins]
+terminal = {}
+applications = {}
+calc = {}
+path  = {}
 
 [windows.overview.launcher.plugins.websearch]
 engines = [
