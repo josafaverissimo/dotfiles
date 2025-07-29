@@ -1,4 +1,5 @@
 require "nvchad.mappings"
+local tabufline = require "nvchad.tabufline"
 
 -- add yours here
 local map = vim.keymap.set
@@ -15,8 +16,18 @@ map("n", "<C-Up>", ":resize +5<CR>", { desc = "horizontal Resize" })
 map("n", "<C-Down>", ":resize -5<CR>", { desc = "Horizontal Resize" })
 
 map("n", "<leader>bc", function()
-  vim.cmd "%bd | e# | bd#"
+  -- vim.cmd "%bd | e# | bd#"
+
+  tabufline.closeAllBufs(false)
 end, { desc = "Close all and keep current buffer" })
+
+map("n", "<leader>bl", function()
+  tabufline.closeBufs_at_direction("left")
+end, { desc = "Close all in right" })
+
+map("n", "<leader>br", function()
+  tabufline.closeBufs_at_direction("right")
+end, { desc = "Close all in left" })
 
 map("n", "<leader>q", function()
   vim.cmd "wa | qa"

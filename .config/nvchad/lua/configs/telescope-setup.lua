@@ -19,7 +19,10 @@ map("n", "<leader>fh", builtin.help_tags, { desc = "Telescope help tags" })
 map("n", "<leader>fg", builtin.git_status, { desc = "Telescope git status" })
 map("n", "<leader>fc", builtin.git_commits, { desc = "Telescope git commits" })
 map("n", "<leader>fr", builtin.lsp_references, { desc = "Telescope lsp references" })
-map("n", "<leader>fd", builtin.diagnostics, { desc = "Telescope diagnostics" })
+map("n", "<leader>fd", function()
+  builtin.diagnostics({ bufnr = 0 })
+end, { desc = "Telescope diagnostics current buffer" })
+map("n", "<leader>fD", builtin.diagnostics, { desc = "Telescope diagnostics all" })
 
 telescope.setup {
   extensions = {
