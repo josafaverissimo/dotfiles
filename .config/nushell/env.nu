@@ -24,7 +24,7 @@ $env.config.show_banner = false
 zoxide init nushell | save -f ~/.zoxide.nu
 
 let shims_dir = (
-  if ( $env | get --ignore-errors ASDF_DATA_DIR | is-empty ) {
+  if ( $env | get --optional ASDF_DATA_DIR | is-empty ) {
     $env.HOME | path join '.asdf'
   } else {
     $env.ASDF_DATA_DIR
@@ -34,7 +34,7 @@ let shims_dir = (
 $env.PATH = ( $env.PATH | split row (char esep) | where { |p| $p != $shims_dir } | prepend $shims_dir )
 
 $env.ASDF_DATA_DIR = (
-  if ( $env | get --ignore-errors ASDF_DATA_DIR | is-empty ) {
+  if ( $env | get --optional ASDF_DATA_DIR | is-empty ) {
     $env.HOME | path join '.asdf'
   } else {
     $env.ASDF_DATA_DIR
