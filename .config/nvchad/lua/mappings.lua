@@ -4,6 +4,7 @@ local tabufline = require "nvchad.tabufline"
 -- add yours here
 local map = vim.keymap.set
 local nomap = vim.keymap.del
+local renamer = require "nvchad.lsp.renamer"
 
 map("i", "jk", "<ESC>")
 map("n", "gl", vim.diagnostic.open_float, { desc = "diagnostic" })
@@ -14,6 +15,7 @@ map("n", "<C-Right>", ":vertical resize +5<CR>", { desc = "Vertical Resize" })
 map("n", "<C-Left>", ":vertical resize -5<CR>", { desc = "Vertical Resize" })
 map("n", "<C-Up>", ":resize +5<CR>", { desc = "horizontal Resize" })
 map("n", "<C-Down>", ":resize -5<CR>", { desc = "Horizontal Resize" })
+map("n", "grn", renamer, { desc = "Horizontal Resize" })
 
 map("n", "<leader>bc", function()
   -- vim.cmd "%bd | e# | bd#"
