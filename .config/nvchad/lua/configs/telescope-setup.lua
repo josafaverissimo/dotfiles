@@ -23,6 +23,8 @@ map("n", "<leader>fd", function()
   builtin.diagnostics({ bufnr = 0 })
 end, { desc = "Telescope diagnostics current buffer" })
 map("n", "<leader>fD", builtin.diagnostics, { desc = "Telescope diagnostics all" })
+map("n", "<leader>fs", builtin.lsp_document_symbols, { desc = "Telescope document symbols"})
+map("n", "<leader>fi", builtin.lsp_implementations, { desc = "Telescope lsp_implementation"})
 
 telescope.setup {
   extensions = {
