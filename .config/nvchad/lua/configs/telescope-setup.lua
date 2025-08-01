@@ -17,7 +17,10 @@ end, { desc = "Telescope live grep hidden files" })
 map("n", "<leader>fb", builtin.buffers, { desc = "Telescope buffers" })
 map("n", "<leader>fh", builtin.help_tags, { desc = "Telescope help tags" })
 map("n", "<leader>fg", builtin.git_status, { desc = "Telescope git status" })
-map("n", "<leader>fc", builtin.git_commits, { desc = "Telescope git commits" })
+
+map("n", "<leader>fc", builtin.git_bcommits, { desc = "Telescope git buffer commits" })
+map("n", "<leader>fC", builtin.git_commits, { desc = "Telescope git commits" })
+
 map("n", "<leader>fr", builtin.lsp_references, { desc = "Telescope lsp references" })
 map("n", "<leader>fd", function()
   builtin.diagnostics({ bufnr = 0 })
