@@ -52,4 +52,14 @@ end
 -- pass to setup along with your other options
 require("nvim-tree").setup {
   on_attach = my_on_attach,
+  diagnostics = {
+    enable = true,
+    show_on_dirs = true,
+    icons = {
+      hint = "",
+      info = "",
+      warning = "",
+      error = "",
+    },
+  },
 }
