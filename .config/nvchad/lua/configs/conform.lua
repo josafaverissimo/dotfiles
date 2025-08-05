@@ -1,7 +1,8 @@
 local options = {
   formatters_by_ft = {
     lua = { "stylua" },
-    ts = { "biome" }
+    typescript = { "biome" },
+    javascript = { "biome" }
     -- css = { "prettier" },
     -- html = { "prettier" },
   },
