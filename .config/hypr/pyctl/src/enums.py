@@ -8,5 +8,5 @@ class ArgEnum(Enum):
 
 class ToggleOpacitySettingEnum(Enum):
     OPAQUE = 1.0
-    ACTIVE_TRANSLUCENT = float(os.getenv("HYPR_ACTIVE_OPACITY", "0.8"))
-    INACTIVE_TRANSLUCENT = float(os.getenv("HYPR_INACTIVE_OPACITY", "0.7"))
+    ACTIVE_TRANSLUCENT = 0.8
+    INACTIVE_TRANSLUCENT = 0.7
