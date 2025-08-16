@@ -1,10 +1,13 @@
+from functools import reduce
 from typing import Callable, cast
 import json
 
 from src.constants import MAX_WORKSPACES, MIN_WORKSPACES
 from src.types import OpacityDict, WindowInfoDict
-from src.utils import run, CustomLogger
+from src.utils import Result, run, CustomLogger
 from src.enums import ToggleOpacitySettingEnum
+from src.constants import WALLPAPERS_DIR
+from random import randint
 
 logger = CustomLogger.get_logger(__name__)
 
@@ -226,3 +229,83 @@ class Commands:
             return
 
         run(f"hyprctl dispatch focuswindow address:{window_address}")
+
+    def __get_active_wallpaper_by_monitor(self) -> Result[dict[str, str] | None, str | None]:
+        process = run("hyprctl hyprpaper listactive")
+
+        if process.error:
+            return Result(None, process.error)
+
+        assert process.value is not None
+
+        wallpapers = process.value.split('\n')
+
+        if not wallpapers[-1]:
+            wallpapers = wallpapers[:-1]
+
+        def wallpapers_to_dict(wallpapers_by_monitor, raw_active_wallpaper):
+            active_wallpaper = raw_active_wallpaper.replace(' ', '').split('=')
+
+            if len(active_wallpaper) < 2:
+                return
+
+            [monitor, wallpaper] = active_wallpaper
+
+            wallpapers_by_monitor[monitor] = wallpaper
+
+            return wallpapers_by_monitor
+
+
+        wallpapers_by_monitor = reduce(wallpapers_to_dict, wallpapers, {})
+
+        return Result(wallpapers_by_monitor, None)
+
+    def __get_available_monitors(self) -> Result[set[str] | None, str | None]:
+        process = run('hyprctl monitors -j')
+
+        if process.error:
+            return Result(None, process.error)
+
+        assert process.value is not None
+
+        def get_monitor_name(monitor_data):
+            return monitor_data['name']
+
+        monitors = map(get_monitor_name, json.loads(process.value))
+
+        return Result(set(monitors), None)
+
+    def randomizer_wallpaper(self):
+        if not WALLPAPERS_DIR.exists() and not WALLPAPERS_DIR.is_dir():
+            return
+
+        available_monitors = self.__get_available_monitors()
+
+        if available_monitors.error:
+            logger.error(available_monitors.error)
+
+            return
+
+        assert available_monitors.value is not None
+
+        active_wallpaper_by_monitor = self.__get_active_wallpaper_by_monitor()
+
+        files = [file for file in WALLPAPERS_DIR.iterdir() if file.is_file()]
+
+        if active_wallpaper_by_monitor.error:
+            logger.error(active_wallpaper_by_monitor.error)
+
+        if active_wallpaper_by_monitor.value:
+            for wallpaper in active_wallpaper_by_monitor.value.values():
+                files = list(filter(lambda file: wallpaper not in file.parts, files))
+
+        for monitor in available_monitors.value:
+            random_index = randint(0, len(files) - 1)
+            random_wallpaper = str(files[random_index].resolve())
+
+            files.pop(random_index)
+
+            run(f'hyprctl hyprpaper reload {monitor},"{random_wallpaper}"')
+            
+
+
