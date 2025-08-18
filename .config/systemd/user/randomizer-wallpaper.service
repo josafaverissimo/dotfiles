@@ -1,0 +1,10 @@
+[Unit]
+Description=Randomizer wallpaper
+After=graphical.target
+
+[Service]
+Type=oneshot
+ExecStart=%h/.scripts/randomizer-wallpaper.sh
+
+[Install]
+WantedBy=graphical.target

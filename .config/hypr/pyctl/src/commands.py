@@ -288,6 +288,8 @@ class Commands:
 
         assert available_monitors.value is not None
 
+        logger.info(f'Available monitors: {available_monitors.value}')
+
         active_wallpaper_by_monitor = self.__get_active_wallpaper_by_monitor()
 
         files = [file for file in WALLPAPERS_DIR.iterdir() if file.is_file()]
@@ -296,6 +298,8 @@ class Commands:
             logger.error(active_wallpaper_by_monitor.error)
 
         if active_wallpaper_by_monitor.value:
+            logger.info(f'Removing active wallpapers: {active_wallpaper_by_monitor.value}')
+
             for wallpaper in active_wallpaper_by_monitor.value.values():
                 files = list(filter(lambda file: wallpaper not in file.parts, files))
 
@@ -305,7 +309,14 @@ class Commands:
 
             files.pop(random_index)
 
-            run(f'hyprctl hyprpaper reload {monitor},"{random_wallpaper}"')
+            process = run(f'hyprctl hyprpaper reload {monitor},"{random_wallpaper}"')
+
+            if process.error:
+                logger.error(f'Failed to change wallpaper: {process.error}')
+
+                continue
+
+            logger.info(f'Wallpaper changed for monitor {monitor}')
             
 
 
