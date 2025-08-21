@@ -11,7 +11,8 @@ local servers = {
   pyright = {},
   kotlin_lsp = {},
   rust_analyzer = {},
-  prismals = {}
+  prismals = {},
+  jsonls = {}
 }
 
 for name, opts in pairs(servers) do
