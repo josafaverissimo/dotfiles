@@ -5,6 +5,21 @@
 ---@type ChadrcConfig
 local M = {}
 
+M.disable = {
+  n = {
+    ["<Tab>"] = "",
+    ["<S-Tab>"] = "",
+  },
+  v = {
+    ["<Tab>"] = "",
+    ["<S-Tab>"] = "",
+  },
+  i = {
+    ["<Tab>"] = "<Tab>", -- mantém comportamento de inserir tab no insert
+    ["<S-Tab>"] = "<S-Tab>",
+  },
+}
+
 M.base46 = {
   theme = "catppuccin",
   transparency = true,
@@ -28,7 +43,7 @@ M.nvdash = {
     [[                 ]],
     [[  Powered By  eovim ]],
     [[                 ]],
-  }
+  },
 }
 
 M.ui = {
@@ -37,12 +52,12 @@ M.ui = {
   },
 
   statusline = {
-    separator_style = "block"
+    separator_style = "block",
   },
 
   telescope = {
-    style = "bordered"
-  }
+    style = "bordered",
+  },
 }
 
 return M

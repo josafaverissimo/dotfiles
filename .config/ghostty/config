@@ -43,11 +43,10 @@
 # resize-overlay-duration = 4s 200ms
 
 
-font-family = JetBrains Mono
+font-family = JetbrainsMono Nerd Font
 font-size = 10
 
 theme = Abernathy
-gtk-adwaita = false
 command = /usr/bin/nu --login --interactive
 confirm-close-surface = false
 

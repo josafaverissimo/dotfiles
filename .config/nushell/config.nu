@@ -24,25 +24,15 @@ source ~/.zoxide.nu
 
 source "~/.asdf/completions/nushell.nu"
 
-source $"($nu.home-path)/.cargo/env.nu"
-
 # aliases
 
 alias astronvim = env NVIM_APPNAME=astronvim nvim
 alias nvchad = env NVIM_APPNAME=nvchad nvim
 alias vrun = overlay use .venv/bin/activate.nu
 
-# Functions
+zoxide init nushell | save -f ~/.zoxide.nu
 
-def hyprlog [] {
-  ls ($env.XDG_RUNTIME_DIR | path join "hypr")
-  | sort-by modified
-  | reverse
-  | first
-  | get name
-  | path join "hyprland.log"
-  | open
-}
+# Functions
 
 def glg [path: string = "."] {
   git log --pretty=%h»¦«%aN»¦«%s»¦«%aD $path
