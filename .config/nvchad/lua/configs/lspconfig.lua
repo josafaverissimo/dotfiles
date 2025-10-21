@@ -12,7 +12,8 @@ local servers = {
   kotlin_lsp = {},
   rust_analyzer = {},
   prismals = {},
-  jsonls = {}
+  jsonls = {},
+  lemminx = {}
 }
 
 for name, opts in pairs(servers) do
