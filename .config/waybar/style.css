@@ -27,12 +27,14 @@ tooltip {
 }
 
 #workspaces {
+  color: transparent;
 	background: rgba(17, 17, 27, 0.7);
 	border-radius: .5rem;
 	padding: 0.5em;
 }
 
 #workspaces button {
+  color: transparent;
 	background: rgb(205, 214, 244);
 	border-radius: 16px;
 	padding: 0;
@@ -42,19 +44,23 @@ tooltip {
 }
 
 #workspaces button.empty {
+  color: transparent;
 	opacity: 0.2;
 }
 
 #workspaces button.active {
+  color: transparent;
 	background: #74c7ec;
 	padding: 0 20px;
 }
 
 #workspaces button.active.empty {
+  color: transparent;
 	opacity: 0.5;
 }
 
 #workspaces button.urgent {
+  color: transparent;
 	background: #f9e2af;
 	padding: 0 5px;
 }

@@ -13,8 +13,8 @@
 
 	"include": ["~/.config/waybar/modules.jsonc"],
 
-	"modules-left": ["hyprland/workspaces"],
-	"modules-center": ["hyprland/window"],
+	"modules-left": ["hyprland/workspaces", "niri/workspaces"],
+	"modules-center": ["hyprland/window", "niri/window"],
 	"modules-right": [
 		"group/hardware",
 		"group/trayswaync",
