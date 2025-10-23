@@ -29,7 +29,7 @@ map("n", "<leader>fD", builtin.diagnostics, { desc = "Telescope diagnostics all"
 map("n", "<leader>fs", builtin.lsp_document_symbols, { desc = "Telescope document symbols"})
 map("n", "<leader>fi", builtin.lsp_implementations, { desc = "Telescope lsp_implementation"})
 map("n", "<leader>fl", builtin.lsp_definitions, { desc = "Telescope lsp_definitions"})
-map("n", "<leader><CR>", builtin.resume, { desc = "Telescope resume" })
+map("n", "<leader>f<CR>", builtin.resume, { desc = "Telescope resume" })
 
 telescope.setup {
   extensions = {
