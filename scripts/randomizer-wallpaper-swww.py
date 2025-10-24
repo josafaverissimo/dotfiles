@@ -28,6 +28,6 @@ for monitor in monitors:
     random_file = files[randint(0, len(files) - 1)]
 
     subprocess.run(
-        f"swww img {str(random_file)} -o {monitor_name} -t any --transition-duration 2 "
+        f"swww img {str(random_file)} -o {monitor_name} -t any --transition-duration 4 "
         + "--transition-fps 165 --resize crop", shell=True
     )
