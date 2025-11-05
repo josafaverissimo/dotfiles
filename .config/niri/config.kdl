@@ -3,6 +3,11 @@
 // Check the wiki for a full description of the configuration:
 // https://yalter.github.io/niri/Configuration:-Introduction
 
+cursor {
+  xcursor-theme "catppuccin-mocha-sky-cursors"
+  xcursor-size 24
+}
+
 // Input device configuration.
 // Find the full list of options on the wiki:
 // https://yalter.github.io/niri/Configuration:-Input
@@ -143,6 +148,7 @@ output "HDMI-A-1" {
 // Settings that influence how windows are positioned and sized.
 // Find more information on the wiki:
 // https://yalter.github.io/niri/Configuration:-Layout
+
 layout {
     // Set gaps around windows in logical pixels.
     gaps 16
@@ -295,6 +301,12 @@ layout {
         // bottom 64
     }
 }
+
+layer-rule {
+    match namespace="^wallpaper$"
+    place-within-backdrop true
+}
+
 
 // Add lines like this to spawn processes at startup.
 // Note that running niri as a session supports xdg-desktop-autostart,
@@ -586,6 +598,8 @@ binds {
     Mod+Comma  { consume-window-into-column; }
     // Expel the bottom window from the focused column to the right.
     Mod+Period { expel-window-from-column; }
+
+    Mod+SemiColon { spawn-sh "swaync-client -t -sw"; }
 
     Mod+R { switch-preset-column-width; }
     // Cycling through the presets in reverse order is also possible.

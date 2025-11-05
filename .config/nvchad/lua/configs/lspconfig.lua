@@ -5,15 +5,15 @@ local servers = {
   cssls = {},
   ts_ls = {},
   jdtls = {},
-  gopls = {},
+  -- gopls = {},
   tailwindcss = {},
-  templ = {},
-  pyright = {},
-  kotlin_lsp = {},
-  rust_analyzer = {},
+  -- templ = {},
+  -- pyright = {},
+  -- kotlin_lsp = {},
+  -- rust_analyzer = {},
   prismals = {},
   jsonls = {},
-  lemminx = {}
+  -- lemminx = {}
 }
 
 for name, opts in pairs(servers) do
