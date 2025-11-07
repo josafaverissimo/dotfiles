@@ -1,0 +1,9 @@
+[Unit]
+Description=Automount Ssd nvme 1 tera
+
+[Automount]
+Where=/media/ssd120
+TimeoutIdleSec=10
+
+[Install]
+WantedBy=multi-user.target

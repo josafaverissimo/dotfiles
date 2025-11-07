@@ -1,0 +1,11 @@
+[Unit]
+Description=Mount Ssd Nvme 1 Tera
+
+[Mount]
+What=/dev/disk/by-uuid/4222B0D222B0CBE3
+Where=/media/ssd120
+Type=ntfs3
+Options=defaults,uid=1000,gid=1000
+
+[Install]
+WantedBy=multi-user.target
