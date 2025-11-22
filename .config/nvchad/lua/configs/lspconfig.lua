@@ -13,7 +13,7 @@ local servers = {
   -- rust_analyzer = {},
   prismals = {},
   jsonls = {},
-  -- lemminx = {}
+  lemminx = {}
 }
 
 for name, opts in pairs(servers) do
