@@ -24,55 +24,6 @@ source ~/.zoxide.nu
 
 source "~/.asdf/completions/nushell.nu"
 
-# aliases
-
-alias astronvim = env NVIM_APPNAME=astronvim nvim
-alias nvchad = env NVIM_APPNAME=nvchad nvim
-alias vrun = overlay use .venv/bin/activate.nu
-
 zoxide init nushell | save -f ~/.zoxide.nu
 
-# Functions
-
-def glg [path: string = "."] {
-  git log --pretty=%h»¦«%aN»¦«%s»¦«%aD $path
-    | lines
-    | split column "»¦«" sha1 committer desc merged_at
-}
-
-def glgc [path: string = "."] {
-  git log --pretty=%h»¦«%aN»¦«%s»¦«%aD $path
-    | lines 
-    | split column "»¦«" sha1 committer desc merged_at 
-    | histogram committer merger 
-    | sort-by merger 
-    | reverse
-}
-
-def dimgs [] {
-  docker image ls --format '{{json .}}'
-    | from json --objects
-    | select Repository Tag ID Size CreatedSince
-    | rename repository tag id size created
-}
-
-def dcnts [] {
-  docker container ls -a --format '{{json .}}' 
-    | from json --objects 
-    | select ID Image Names Ports Status Command RunningFor
-    | rename id image name ports status command created
-}
-
-def jrun [file: string] {
-  let  filename = ($file | path basename)
-  let classname = ($filename | str replace ".java" "")
-
-  javac $file
-
-  if $env.LAST_EXIT_CODE != 0 {
-    null
-  }
-
-  java $classname
-}
-
+use ./modules *
