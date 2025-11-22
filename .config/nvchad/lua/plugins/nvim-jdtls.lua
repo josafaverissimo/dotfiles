@@ -50,6 +50,12 @@ return {
       root_dir = root_dir,
       settings = {
         java = {
+          format = {
+            settings = {
+              url = root_dir .. '/eclipse-java-style.xml'
+            }
+          },
+
           init_options = {
             bundles = bundles,
           },
