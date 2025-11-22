@@ -79,7 +79,7 @@ local function my_on_attach(bufnr)
 
   -- custom mappings
   vim.keymap.set("n", "<C-t>", api.tree.change_root_to_parent, opts "Up")
-  vim.keymap.set("n", "<C-h>", api.tree.toggle_help, opts "Help")
+  vim.keymap.set("n", "<C-/>", api.tree.toggle_help, opts "Help")
   vim.keymap.set("n", "l", edit_or_open, opts "Edit Or Open")
   vim.keymap.set("n", "L", vsplit_preview, opts "Vsplit Preview")
   vim.keymap.set("n", "h", api.tree.close, opts "Close")
