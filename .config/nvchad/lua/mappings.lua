@@ -35,7 +35,7 @@ map("n", "<leader>q", function()
   vim.cmd "wa | qa"
 end, { desc = "Save and close all buffers" })
 
-map("n", "<leader>gg", function()
+map("n", "<leader>gl", function()
   local buf = vim.api.nvim_create_buf(false, true)
 
   local win = vim.api.nvim_open_win(buf, true, {
